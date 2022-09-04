@@ -1,0 +1,27 @@
+package es.kiwi.Structural.decorator.extension.object_composite_inheritance;
+/*何时创建被组合对象的实例*/
+public class C3 {
+
+    //示例直接在属性上创建需要组合的对象
+    private A a = new A();
+
+    //示例通过外部传入需要组合的对象
+    private B b;
+    public void setB(B b) {
+        this.b = b;
+    }
+
+    public void a1() {
+        //转调A对象的功能
+        a.a1();
+    }
+
+    public void b1() {
+        //转调B对象的功能
+        b.b1();
+    }
+
+    public void c11() {
+        System.out.println("Now in C4.c11");
+    }
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <jdbc>
+        <driver-class>com.mysql.cj.jdbc.Driver</driver-class>
+        <url>jdbc:mysql:///design_pattern?characterEncoding=UTF-8&amp;serverTimezone=UTC</url>
+        <user>root</user>
+        <password>root</password>
+    </jdbc>
+    <application-xml>缺省读取的Spring配置的文件名称</application-xml>
+</root>

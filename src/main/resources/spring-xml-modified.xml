@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <database-connection>
+        <connection-type>连接数据库类型，1 - Spring集成 2 - DataSource(JNDI) 3 - JDBC</connection-type>
+        <jndi>DataSource的方式，服务器数据源的JNDI名称</jndi>
+        <jdbc>
+            <driver-class>com.mysql.cj.jdbc.Driver</driver-class>
+            <url>jdbc:mysql:///design_pattern?characterEncoding=UTF-8&amp;serverTimezone=UTC</url>
+            <user>root</user>
+            <password>root</password>
+        </jdbc>
+    </database-connection>
+    <system-operation>系统管理员ID</system-operation>
+    <log>
+        <operation-type>记录日志的方式，1 - 数据库 2- 文件</operation-type>
+        <file-name>记录日志的文件名称</file-name>
+    </log>
+    <thread-internal>缓存线程的间隔时长</thread-internal>
+    <spring-default>
+        <application-xmls>
+            <application-xml>缺省读取的Spring配置的文件名称</application-xml>
+            <application-xml>其他需要读取的Spring配置的文件名称</application-xml>
+        </application-xmls>
+    </spring-default>
+</root>
