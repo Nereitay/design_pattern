@@ -1,4 +1,4 @@
-package es.kiwi.others;
+package others;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package es.kiwi.others;
+package others;
 
 
 import org.junit.Test;
