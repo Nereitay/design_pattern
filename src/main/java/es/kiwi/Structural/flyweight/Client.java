@@ -1,5 +1,6 @@
 package es.kiwi.Structural.flyweight;
 
+import es.kiwi.Structural.flyweight.extension.object_manage.FlyweightFactory;
 import es.kiwi.Structural.flyweight.scenario.SecurityMgr;
 
 public class Client {
@@ -15,6 +16,21 @@ public class Client {
 //        unshared();
 
         /*对享元对象的管理：引用计数，垃圾清理*/
+        es.kiwi.Structural.flyweight.extension.object_manage.SecurityMgr mgr =
+                es.kiwi.Structural.flyweight.extension.object_manage.SecurityMgr.getInstance();
+        boolean f1 = mgr.hasPermit("Uva", "薪资数据", "查看");
+        boolean f2 = mgr.hasPermit("Papaya", "薪资数据", "查看");
+        boolean f3 = mgr.hasPermit("Papaya", "薪资数据", "修改");
+
+        for (int i = 0; i < 3; i++) {
+            mgr.hasPermit("Uva" + i, "薪资数据", "查看");
+        }
+
+        //特别提醒，这里查看的引用次数，不是指测试使用的次数，指的是SecurityMgr的queryByUser方法通过享元工厂去获取享元对象的次数
+        System.out.println("薪资数据,查看 被引用了" + FlyweightFactory.getInstance().getUseTimes("薪资数据,查看") + "次");
+        System.out.println("薪资数据,修改 被引用了" + FlyweightFactory.getInstance().getUseTimes("薪资数据,修改") + "次");
+        System.out.println("人员列表,查看 被引用了" + FlyweightFactory.getInstance().getUseTimes("人员列表,查看") + "次");
+
 
     }
 
