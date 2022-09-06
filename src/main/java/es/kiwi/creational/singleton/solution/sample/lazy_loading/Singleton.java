@@ -1,11 +1,11 @@
-package es.kiwi.creational.singleton.solution.lazy_loading;
+package es.kiwi.creational.singleton.solution.sample.lazy_loading;
 
 /**
- * 懒汉式单例实现的示例
+ * 懒汉式单例实现的示例, 时间换空间
  */
 public class Singleton {
     /**
-     * 4.定义一个变量来存储创建好的类实例
+     * 4.定义一个变量来存储创建好的类实例,这个属性就是用来缓存实例的
      * 5.由于要在一个静态方法里面使用，所以这个属性被迫称为一个类变量，要强制加上static，也就是说，这里并没有使用static的特性
      */
     private static Singleton uniqueInstance = null;
@@ -27,7 +27,8 @@ public class Singleton {
      *
      * @return 一个Singleton的实例
      */
-    public static synchronized Singleton getInstance() {
+    public static synchronized Singleton getInstance() {//不加同步的懒汉式是线程不安全的
+        /*缓存的实现*/
         //6.判断存储实例的变量是否有值
         if (uniqueInstance == null) {
             //6.1如果没有，就创建一个类实例，并把值赋值给存储类实例的变量

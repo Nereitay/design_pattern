@@ -1,4 +1,4 @@
-package es.kiwi.creational.singleton.solution.cache;
+package es.kiwi.creational.singleton.extension.cache;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ public class Singleton {
     /**
      * 缓存实例的容器
      */
-    private static Map<String, Singleton> map = new HashMap<String, Singleton>();
+    private static Map<String, Singleton> map = new HashMap<>();
 
     /**
      * 私有构造方法

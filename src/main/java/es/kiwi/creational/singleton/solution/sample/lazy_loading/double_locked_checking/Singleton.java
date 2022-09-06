@@ -1,4 +1,4 @@
-package es.kiwi.creational.singleton.solution.lazy_loading.double_locked_checking;
+package es.kiwi.creational.singleton.solution.sample.lazy_loading.double_locked_checking;
 
 /**
  * 双重检查加锁:既实现线程安全，又能使性能不受到很大的影响
@@ -15,8 +15,9 @@ public class Singleton {
     }
 
     public static Singleton getInstance() {
-        //先检查实力是否存在，如果不存在才进入下面的同步代码块
+        //先检查实例是否存在，如果不存在才进入下面的同步代码块
         if (instance == null) {
+            /*它只是在第一次创建实例的时候同步，以后就不需要同步了，从而加快了运行速度*/
             //同步块，线程安全地创建实例
             synchronized (Singleton.class) {
                 //再次检查实例是否存在，如果不存在才真正地创建实例

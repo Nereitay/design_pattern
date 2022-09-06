@@ -1,9 +1,10 @@
-package es.kiwi.creational.singleton.solution.eager_loading;
+package es.kiwi.creational.singleton.solution.sample.eager_loading;
 
 /**
- * 饿汉式单例实现的示例
+ * 饿汉式单例实现的示例，空间换时间
  */
 public class Singleton {
+    /*饿汉式是线程安全的，因为虚拟机只会装载一次，在装载类的时候是不会发生并发的*/
     /**
      * 4.定义一个静态变量来存储创建好的类实例，直接在这里创建类实例，只能创建一次
      * 这个方案用到了static特性（主动加static）

@@ -1,4 +1,4 @@
-package es.kiwi.creational.singleton.solution.enumeration;
+package es.kiwi.creational.singleton.solution.sample.enumeration;
 
 /**
  * 使用枚举类来实现单例模式的示例

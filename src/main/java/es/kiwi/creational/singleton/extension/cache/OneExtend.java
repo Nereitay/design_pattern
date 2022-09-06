@@ -1,4 +1,4 @@
-package es.kiwi.creational.singleton.solution.cache;
+package es.kiwi.creational.singleton.extension.cache;
 
 import java.util.HashMap;
 import java.util.Map;

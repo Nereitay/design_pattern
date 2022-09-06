@@ -1,4 +1,4 @@
-package es.kiwi.creational.singleton.problem.before;
+package es.kiwi.creational.singleton.scenario;
 
 import lombok.Getter;
 
@@ -36,7 +36,7 @@ public class AppConfig {
         InputStream is = null;
 
         try {
-            is = AppConfig.class.getResourceAsStream("AppConfig.properties");
+            is = AppConfig.class.getClassLoader().getResourceAsStream("AppConfig.properties");
             prop.load(is);
             //把配置文件中的内容读出来设置到属性上
             this.parameterA = prop.getProperty("paramA");

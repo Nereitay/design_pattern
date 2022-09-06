@@ -1,10 +1,10 @@
-package es.kiwi.creational.singleton.solution.cache;
+package es.kiwi.creational.singleton.extension.cache;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Java中缓存的基本实现示例
+ * Java中缓存的基本实现示例，在Java开发中最常见的一种实现缓存的方式就是使用Map
  *  这里只是缓存的基本实现，还有很多功能都没有考虑，比如缓存的清除，缓存的同步等等
  */
 public class JavaCache {

@@ -1,4 +1,4 @@
-package es.kiwi.creational.singleton.solution.lazy_loading.lazy_initialization_holder_class;
+package es.kiwi.creational.singleton.solution.sample.lazy_loading.lazy_initialization_holder_class;
 
 /**
  * Lazy initialization holder class模式
@@ -6,7 +6,8 @@ package es.kiwi.creational.singleton.solution.lazy_loading.lazy_initialization_h
  */
 public class Singleton {
     /**
-     * 类级内部类，也就是静态的成员式内部类。该内部类的实例与外部类的实例没有绑定关系，而且只有被调用到时才会装载。从而实现了延迟加载
+     * 类级内部类，也就是静态的成员式内部类。
+     * 该内部类的实例与外部类的实例没有绑定关系，而且只有被调用到时才会装载。从而实现了延迟加载
      */
     private static class SingletonHolder{
         /**
