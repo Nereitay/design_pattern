@@ -1,4 +1,4 @@
-package es.kiwi.creational.builder.common;
+package es.kiwi.creational.builder.scenario;
 
 import lombok.Getter;
 import lombok.Setter;

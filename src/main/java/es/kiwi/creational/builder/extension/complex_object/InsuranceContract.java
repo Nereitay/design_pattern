@@ -1,4 +1,4 @@
-package es.kiwi.creational.builder.pattern.complex_object;
+package es.kiwi.creational.builder.extension.complex_object;
 
 
 /**

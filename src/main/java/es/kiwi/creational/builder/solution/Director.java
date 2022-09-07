@@ -1,8 +1,8 @@
-package es.kiwi.creational.builder.pattern;
+package es.kiwi.creational.builder.solution;
 
-import es.kiwi.creational.builder.common.ExportDataModel;
-import es.kiwi.creational.builder.common.ExportFooterModel;
-import es.kiwi.creational.builder.common.ExportHeaderModel;
+import es.kiwi.creational.builder.scenario.ExportDataModel;
+import es.kiwi.creational.builder.scenario.ExportFooterModel;
+import es.kiwi.creational.builder.scenario.ExportHeaderModel;
 
 import java.util.Collection;
 import java.util.Map;

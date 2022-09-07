@@ -1,10 +1,17 @@
-package es.kiwi.creational.builder.pattern.complex_object;
+package es.kiwi.creational.builder.extension.complex_object;
+
+
+import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
 
 /**
+ * 保险合同的对象
+ *
  * 进一步：把构建器对象和被构建对象合并
  * 重构手法：将类内联化 (Inline Class)
  */
-public class InsuranceContractBuilder {
+public class InsuranceContract2 {
+
     private String contractId;
 
     private String personName;
@@ -18,24 +25,19 @@ public class InsuranceContractBuilder {
     private String otherData;
 
     /**
-     * 构造方法，访问级别是私有的
-     * @param builder 构建器对象
+     * 构造方法：访问级别是私有的
      */
-    private InsuranceContractBuilder(ConcreteBuilderInline builder) {
-
-        this.contractId = builder.contractId;
-        this.personName = builder.personName;
-        this.companyName = builder.companyName;
-        this.beginDate = builder.beginDate;
-        this.endDate = builder.endDate;
-        this.otherData = builder.otherData;
-
+    private InsuranceContract2(ConcreteBuilder2 builder) {
+        this.contractId = builder.getContractId();
+        this.personName = builder.getPersonName();
+        this.companyName = builder.getCompanyName();
+        this.beginDate = builder.getBeginDate();
+        this.endDate = builder.getEndDate();
+        this.otherData = builder.getOtherData();
     }
 
-    /**
-     * 构造保险合同对象的构建器，作为保险合同的类级内部类
-     */
-    public static class ConcreteBuilderInline {
+    @Getter
+    public static class ConcreteBuilder2 {
         private String contractId;
 
         private String personName;
@@ -50,11 +52,12 @@ public class InsuranceContractBuilder {
 
         /**
          * 构造方法，传入必须要有的参数
+         *
          * @param contractId 保险合同编号
-         * @param beginDate 保险开始生效的日期
-         * @param endDate 保险失效的日期
+         * @param beginDate  保险开始生效的日期
+         * @param endDate    保险失效的日期
          */
-        public ConcreteBuilderInline(String contractId, long beginDate, long endDate) {
+        public ConcreteBuilder2(String contractId, long beginDate, long endDate) {
             this.contractId = contractId;
             this.beginDate = beginDate;
             this.endDate = endDate;
@@ -62,44 +65,48 @@ public class InsuranceContractBuilder {
 
         /**
          * 选填数据，被保险人员的名称
+         *
          * @param personName 被保险人员的名称
          * @return 构建器对象
          */
-        public ConcreteBuilderInline setPersonName(String personName) {
+        public ConcreteBuilder2 setPersonName(String personName) {
             this.personName = personName;
             return this;
         }
 
         /**
          * 选填数据，被保险公司的名称
+         *
          * @param companyName 被保险公司的名称
          * @return 构建器对象
          */
-        public ConcreteBuilderInline setCompanyName(String companyName) {
+        public ConcreteBuilder2 setCompanyName(String companyName) {
             this.companyName = companyName;
             return this;
         }
 
         /**
          * 选填数据，其他数据
+         *
          * @param otherData 其他数据
          * @return 构建器对象
          */
-        public ConcreteBuilderInline setOtherData(String otherData) {
+        public ConcreteBuilder2 setOtherData(String otherData) {
             this.otherData = otherData;
             return this;
         }
 
         /**
          * 构建真正的对象并返回
-         * @return 构建的包i按合同的对象
+         *
+         * @return 构建的保险合同的对象
          */
-        public InsuranceContractBuilder build() {
-            if (contractId == null || contractId.trim().length() == 0) {
+        public InsuranceContract2 build() {
+            if (StringUtils.isBlank(contractId)) {
                 throw new IllegalArgumentException("合同编号不能为空");
             }
-            boolean signPerson = personName != null && personName.trim().length() > 0;
-            boolean signCompany = companyName != null && companyName.trim().length() > 0;
+            boolean signPerson = StringUtils.isNotBlank(personName);
+            boolean signCompany = StringUtils.isNotBlank(companyName);
             if (signPerson && signCompany) {
                 throw new IllegalArgumentException("一份保险合同不能同时与个人和公司签订");
             }
@@ -115,7 +122,7 @@ public class InsuranceContractBuilder {
             if (endDate <= beginDate) {
                 throw new IllegalArgumentException("保险失效日期必须大于保险生效日期");
             }
-            return new InsuranceContractBuilder(this);
+            return new InsuranceContract2(this);
         }
     }
 
@@ -123,6 +130,6 @@ public class InsuranceContractBuilder {
      * 示例：保险合同的某些操作
      */
     public void someOperation() {
-        System.out.println("Now in Insurance Contract Builder someOperation == " + this.contractId);
+        System.out.println("Now in Insurance Contract someOperation == " + this.contractId);
     }
 }

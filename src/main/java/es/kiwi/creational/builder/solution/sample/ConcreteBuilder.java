@@ -1,4 +1,4 @@
-package es.kiwi.creational.builder.pattern.example;
+package es.kiwi.creational.builder.solution.sample;
 
 /**
  * 具体生成器实现对象

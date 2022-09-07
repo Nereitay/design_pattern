@@ -1,4 +1,4 @@
-package es.kiwi.creational.builder.pattern.example;
+package es.kiwi.creational.builder.solution.sample;
 
 /**
  * 指导者，指导使用生成器的接口来创建产品的对象
