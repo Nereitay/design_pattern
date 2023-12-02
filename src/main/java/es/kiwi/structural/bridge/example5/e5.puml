@@ -1,0 +1,26 @@
+@startuml
+abstract class es.kiwi.structural.bridge.example5.Abstraction {
+# Implementor impl
++ <<Create>> Abstraction(Implementor)
++ void operation()
+}
+class es.kiwi.structural.bridge.example5.ConcreteImplementorB {
++ void operationImpl()
+}
+interface es.kiwi.structural.bridge.example5.Implementor {
+~ void operationImpl()
+}
+class es.kiwi.structural.bridge.example5.RefinedAbstraction {
++ <<Create>> RefinedAbstraction(Implementor)
++ void otherOperation()
+}
+class es.kiwi.structural.bridge.example5.ConcreteImplementorA {
++ void operationImpl()
+}
+
+
+es.kiwi.structural.bridge.example5.Implementor <|.. es.kiwi.structural.bridge.example5.ConcreteImplementorB
+es.kiwi.structural.bridge.example5.Abstraction <|-- es.kiwi.structural.bridge.example5.RefinedAbstraction
+es.kiwi.structural.bridge.example5.Implementor <|.. es.kiwi.structural.bridge.example5.ConcreteImplementorA
+es.kiwi.structural.bridge.example5.Abstraction o.. es.kiwi.structural.bridge.example5.Implementor
+@enduml

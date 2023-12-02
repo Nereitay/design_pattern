@@ -1,0 +1,43 @@
+@startuml
+class es.kiwi.structural.bridge.example3.UrgentMessageEmail {
++ void send(String,String)
++ Object watch(String)
+}
+class es.kiwi.structural.bridge.example3.SpecialUrgentMessageEmail {
++ void hurry(String)
++ void send(String,String)
+}
+class es.kiwi.structural.bridge.example3.CommonMessageEmail {
++ void send(String,String)
+}
+class es.kiwi.structural.bridge.example3.CommonMessageSMS {
++ void send(String,String)
+}
+class es.kiwi.structural.bridge.example3.SpecialUrgentMessageEmail {
++ void hurry(String)
++ void send(String,String)
+}
+class es.kiwi.structural.bridge.example3.UrgentMessageSMS {
++ void send(String,String)
++ Object watch(String)
+}
+interface es.kiwi.structural.bridge.example3.UrgentMessage {
+~ Object watch(String)
+}
+interface es.kiwi.structural.bridge.example3.SpecialUrgentMessage {
+~ void hurry(String)
+}
+interface es.kiwi.structural.bridge.example3.Message {
+~ void send(String,String)
+}
+
+
+es.kiwi.structural.bridge.example3.UrgentMessage <|.. es.kiwi.structural.bridge.example3.UrgentMessageEmail
+es.kiwi.structural.bridge.example3.SpecialUrgentMessage <|.. es.kiwi.structural.bridge.example3.SpecialUrgentMessageEmail
+es.kiwi.structural.bridge.example3.Message <|.. es.kiwi.structural.bridge.example3.CommonMessageEmail
+es.kiwi.structural.bridge.example3.Message <|.. es.kiwi.structural.bridge.example3.CommonMessageSMS
+es.kiwi.structural.bridge.example3.SpecialUrgentMessage <|.. es.kiwi.structural.bridge.example3.SpecialUrgentMessageEmail
+es.kiwi.structural.bridge.example3.UrgentMessage <|.. es.kiwi.structural.bridge.example3.UrgentMessageSMS
+es.kiwi.structural.bridge.example3.Message <|-- es.kiwi.structural.bridge.example3.UrgentMessage
+es.kiwi.structural.bridge.example3.Message <|-- es.kiwi.structural.bridge.example3.SpecialUrgentMessage
+@enduml

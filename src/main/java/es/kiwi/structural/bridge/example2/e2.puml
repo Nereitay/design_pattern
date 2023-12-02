@@ -1,0 +1,32 @@
+@startuml
+interface es.kiwi.structural.bridge.example2.UrgentMessage {
+~ Object watch(String)
+}
+class es.kiwi.structural.bridge.example2.UrgentMessageEmail {
++ void send(String,String)
++ Object watch(String)
+}
+class es.kiwi.structural.bridge.example2.CommonMessageSMS {
++ void send(String,String)
+}
+class es.kiwi.structural.bridge.example2.Client {
++ {static} void main(String[])
+}
+class es.kiwi.structural.bridge.example2.CommonMessageEmail {
++ void send(String,String)
+}
+interface es.kiwi.structural.bridge.example2.Message {
+~ void send(String,String)
+}
+class es.kiwi.structural.bridge.example2.UrgentMessageSMS {
++ void send(String,String)
++ Object watch(String)
+}
+
+
+es.kiwi.structural.bridge.example2.Message <|-- es.kiwi.structural.bridge.example2.UrgentMessage
+es.kiwi.structural.bridge.example2.UrgentMessage <|.. es.kiwi.structural.bridge.example2.UrgentMessageEmail
+es.kiwi.structural.bridge.example2.Message <|.. es.kiwi.structural.bridge.example2.CommonMessageSMS
+es.kiwi.structural.bridge.example2.Message <|.. es.kiwi.structural.bridge.example2.CommonMessageEmail
+es.kiwi.structural.bridge.example2.UrgentMessage <|.. es.kiwi.structural.bridge.example2.UrgentMessageSMS
+@enduml

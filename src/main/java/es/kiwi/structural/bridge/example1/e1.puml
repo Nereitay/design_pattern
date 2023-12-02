@@ -1,0 +1,18 @@
+@startuml
+class es.kiwi.structural.bridge.example1.Client {
++ {static} void main(String[])
+}
+class es.kiwi.structural.bridge.example1.CommonMessageSMS {
++ void send(String,String)
+}
+interface es.kiwi.structural.bridge.example1.Message {
+~ void send(String,String)
+}
+class es.kiwi.structural.bridge.example1.CommonMessageEmail {
++ void send(String,String)
+}
+
+
+es.kiwi.structural.bridge.example1.Message <|.. es.kiwi.structural.bridge.example1.CommonMessageSMS
+es.kiwi.structural.bridge.example1.Message <|.. es.kiwi.structural.bridge.example1.CommonMessageEmail
+@enduml

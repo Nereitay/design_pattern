@@ -1,0 +1,57 @@
+@startuml
+class es.kiwi.structural.bridge.example4.SpecialUrgentMessageEmail {
++ void hurry(String)
++ void send(String,String)
+}
+interface es.kiwi.structural.bridge.example4.Message {
+~ void send(String,String)
+}
+class es.kiwi.structural.bridge.example4.SpecialUrgentMessageMobile {
++ void hurry(String)
++ void send(String,String)
+}
+class es.kiwi.structural.bridge.example4.SpecialUrgentMessageSMS {
++ void hurry(String)
++ void send(String,String)
+}
+class es.kiwi.structural.bridge.example4.UrgentMessageMobile {
++ void send(String,String)
++ Object watch(String)
+}
+class es.kiwi.structural.bridge.example4.CommonMessageEmail {
++ void send(String,String)
+}
+interface es.kiwi.structural.bridge.example4.SpecialUrgentMessage {
+~ void hurry(String)
+}
+class es.kiwi.structural.bridge.example4.UrgentMessageEmail {
++ void send(String,String)
++ Object watch(String)
+}
+class es.kiwi.structural.bridge.example4.UrgentMessageSMS {
++ void send(String,String)
++ Object watch(String)
+}
+class es.kiwi.structural.bridge.example4.CommonMessageMobile {
++ void send(String,String)
+}
+interface es.kiwi.structural.bridge.example4.UrgentMessage {
+~ Object watch(String)
+}
+class es.kiwi.structural.bridge.example4.CommonMessageSMS {
++ void send(String,String)
+}
+
+
+es.kiwi.structural.bridge.example4.SpecialUrgentMessage <|.. es.kiwi.structural.bridge.example4.SpecialUrgentMessageMobile
+es.kiwi.structural.bridge.example4.SpecialUrgentMessage <|.. es.kiwi.structural.bridge.example4.SpecialUrgentMessageEmail
+es.kiwi.structural.bridge.example4.SpecialUrgentMessage <|.. es.kiwi.structural.bridge.example4.SpecialUrgentMessageSMS
+es.kiwi.structural.bridge.example4.Message <|-- es.kiwi.structural.bridge.example4.SpecialUrgentMessage
+es.kiwi.structural.bridge.example4.Message <|.. es.kiwi.structural.bridge.example4.CommonMessageEmail
+es.kiwi.structural.bridge.example4.Message <|.. es.kiwi.structural.bridge.example4.CommonMessageMobile
+es.kiwi.structural.bridge.example4.Message <|.. es.kiwi.structural.bridge.example4.CommonMessageSMS
+es.kiwi.structural.bridge.example4.UrgentMessage <|.. es.kiwi.structural.bridge.example4.UrgentMessageMobile
+es.kiwi.structural.bridge.example4.UrgentMessage <|.. es.kiwi.structural.bridge.example4.UrgentMessageEmail
+es.kiwi.structural.bridge.example4.UrgentMessage <|.. es.kiwi.structural.bridge.example4.UrgentMessageSMS
+es.kiwi.structural.bridge.example4.Message <|-- es.kiwi.structural.bridge.example4.UrgentMessage
+@enduml

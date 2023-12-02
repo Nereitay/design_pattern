@@ -1,0 +1,38 @@
+@startuml
+class es.kiwi.structural.bridge.example6.MessageSMS {
++ void send(String,String)
+}
+class es.kiwi.structural.bridge.example6.MessageMobile {
++ void send(String,String)
+}
+class es.kiwi.structural.bridge.example6.MessageEmail {
++ void send(String,String)
+}
+interface es.kiwi.structural.bridge.example6.MessageImplementor {
+~ void send(String,String)
+}
+abstract class es.kiwi.structural.bridge.example6.AbstractMessage {
+# MessageImplementor impl
++ void sendMessage(String,String)
+}
+class es.kiwi.structural.bridge.example6.CommonMessage {
++ void sendMessage(String,String)
+}
+class es.kiwi.structural.bridge.example6.UrgentMessage {
++ void sendMessage(String,String)
++ Object watch(String)
+}
+class es.kiwi.structural.bridge.example6.SpecialUrgentMessage {
++ void sendMessage(String,String)
++ void hurry(String)
+}
+
+
+es.kiwi.structural.bridge.example6.MessageImplementor <|.. es.kiwi.structural.bridge.example6.MessageSMS
+es.kiwi.structural.bridge.example6.MessageImplementor <|.. es.kiwi.structural.bridge.example6.MessageMobile
+es.kiwi.structural.bridge.example6.MessageImplementor <|.. es.kiwi.structural.bridge.example6.MessageEmail
+es.kiwi.structural.bridge.example6.AbstractMessage <|-- es.kiwi.structural.bridge.example6.CommonMessage
+es.kiwi.structural.bridge.example6.AbstractMessage <|-- es.kiwi.structural.bridge.example6.UrgentMessage
+es.kiwi.structural.bridge.example6.AbstractMessage <|-- es.kiwi.structural.bridge.example6.SpecialUrgentMessage
+es.kiwi.structural.bridge.example6.AbstractMessage o-- es.kiwi.structural.bridge.example6.MessageImplementor
+@enduml
