@@ -1,0 +1,25 @@
+@startuml
+class es.kiwi.behavioral.strategy.example3.Context {
+- Strategy strategy
++ <<Create>> Context(Strategy)
++ void contextInterface()
+}
+interface es.kiwi.behavioral.strategy.example3.Strategy {
+~ void algorithmInterface()
+}
+class es.kiwi.behavioral.strategy.example3.ConcreteStrategyA {
++ void algorithmInterface()
+}
+class es.kiwi.behavioral.strategy.example3.ConcreteStrategyB {
++ void algorithmInterface()
+}
+class es.kiwi.behavioral.strategy.example3.ConcreteStrategyC {
++ void algorithmInterface()
+}
+
+
+es.kiwi.behavioral.strategy.example3.Strategy <|.. es.kiwi.behavioral.strategy.example3.ConcreteStrategyA
+es.kiwi.behavioral.strategy.example3.Strategy <|.. es.kiwi.behavioral.strategy.example3.ConcreteStrategyB
+es.kiwi.behavioral.strategy.example3.Strategy <|.. es.kiwi.behavioral.strategy.example3.ConcreteStrategyC
+es.kiwi.behavioral.strategy.example3.Context o--> es.kiwi.behavioral.strategy.example3.Strategy
+@enduml

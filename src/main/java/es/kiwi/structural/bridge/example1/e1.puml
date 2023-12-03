@@ -15,4 +15,5 @@ class es.kiwi.structural.bridge.example1.CommonMessageEmail {
 
 es.kiwi.structural.bridge.example1.Message <|.. es.kiwi.structural.bridge.example1.CommonMessageSMS
 es.kiwi.structural.bridge.example1.Message <|.. es.kiwi.structural.bridge.example1.CommonMessageEmail
+es.kiwi.structural.bridge.example1.Client ..> es.kiwi.structural.bridge.example1.Message
 @enduml

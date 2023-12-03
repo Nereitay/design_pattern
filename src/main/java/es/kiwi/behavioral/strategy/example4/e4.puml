@@ -1,0 +1,29 @@
+@startuml
+class es.kiwi.behavioral.strategy.example4.CooperateCustomerStrategy {
++ double calcPrice(double)
+}
+class es.kiwi.behavioral.strategy.example4.LargeCustomerStrategy {
++ double calcPrice(double)
+}
+class es.kiwi.behavioral.strategy.example4.NormalCustomerStrategy {
++ double calcPrice(double)
+}
+class es.kiwi.behavioral.strategy.example4.OldCustomerStrategy {
++ double calcPrice(double)
+}
+class es.kiwi.behavioral.strategy.example4.Price {
+- Strategy strategy
++ <<Create>> Price(Strategy)
++ double quote(double)
+}
+interface es.kiwi.behavioral.strategy.example4.Strategy {
+~ double calcPrice(double)
+}
+
+
+es.kiwi.behavioral.strategy.example4.Strategy <|.. es.kiwi.behavioral.strategy.example4.LargeCustomerStrategy
+es.kiwi.behavioral.strategy.example4.Strategy <|.. es.kiwi.behavioral.strategy.example4.NormalCustomerStrategy
+es.kiwi.behavioral.strategy.example4.Strategy <|.. es.kiwi.behavioral.strategy.example4.OldCustomerStrategy
+es.kiwi.behavioral.strategy.example4.Strategy <|.. es.kiwi.behavioral.strategy.example4.CooperateCustomerStrategy
+es.kiwi.behavioral.strategy.example4.Price o--> es.kiwi.behavioral.strategy.example4.Strategy
+@enduml

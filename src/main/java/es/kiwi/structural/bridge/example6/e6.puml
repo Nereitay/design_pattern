@@ -34,5 +34,5 @@ es.kiwi.structural.bridge.example6.MessageImplementor <|.. es.kiwi.structural.br
 es.kiwi.structural.bridge.example6.AbstractMessage <|-- es.kiwi.structural.bridge.example6.CommonMessage
 es.kiwi.structural.bridge.example6.AbstractMessage <|-- es.kiwi.structural.bridge.example6.UrgentMessage
 es.kiwi.structural.bridge.example6.AbstractMessage <|-- es.kiwi.structural.bridge.example6.SpecialUrgentMessage
-es.kiwi.structural.bridge.example6.AbstractMessage o-- es.kiwi.structural.bridge.example6.MessageImplementor
+es.kiwi.structural.bridge.example6.AbstractMessage o--> es.kiwi.structural.bridge.example6.MessageImplementor
 @enduml

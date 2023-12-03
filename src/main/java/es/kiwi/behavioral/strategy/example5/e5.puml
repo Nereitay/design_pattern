@@ -1,0 +1,42 @@
+@startuml
+interface es.kiwi.behavioral.strategy.example5.PaymentStrategy {
+~ void pay(PaymentContext)
+}
+class es.kiwi.behavioral.strategy.example5.DollarCash {
++ void pay(PaymentContext)
+}
+class es.kiwi.behavioral.strategy.example5.PaymentContext2 {
+- String account
++ <<Create>> PaymentContext2(String,double,String,PaymentStrategy)
++ String getAccount()
+}
+class es.kiwi.behavioral.strategy.example5.Card2 {
+- String account
++ <<Create>> Card2(String)
++ void pay(PaymentContext)
+}
+class es.kiwi.behavioral.strategy.example5.RMBCash {
++ void pay(PaymentContext)
+}
+class es.kiwi.behavioral.strategy.example5.Card {
++ void pay(PaymentContext)
+}
+class es.kiwi.behavioral.strategy.example5.PaymentContext {
+- String userName
+- double money
+- PaymentStrategy strategy
++ <<Create>> PaymentContext(String,double,PaymentStrategy)
++ String getUserName()
++ double getMoney()
++ void payNow()
+}
+
+
+es.kiwi.behavioral.strategy.example5.PaymentStrategy <|.. es.kiwi.behavioral.strategy.example5.DollarCash
+es.kiwi.behavioral.strategy.example5.PaymentContext <|-- es.kiwi.behavioral.strategy.example5.PaymentContext2
+es.kiwi.behavioral.strategy.example5.PaymentStrategy <|.. es.kiwi.behavioral.strategy.example5.Card2
+es.kiwi.behavioral.strategy.example5.PaymentStrategy <|.. es.kiwi.behavioral.strategy.example5.RMBCash
+es.kiwi.behavioral.strategy.example5.PaymentStrategy <|.. es.kiwi.behavioral.strategy.example5.Card
+es.kiwi.behavioral.strategy.example5.PaymentContext o..> es.kiwi.behavioral.strategy.example5.PaymentStrategy
+es.kiwi.behavioral.strategy.example5.PaymentStrategy o..> es.kiwi.behavioral.strategy.example5.PaymentContext
+@enduml

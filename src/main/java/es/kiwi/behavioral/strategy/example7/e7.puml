@@ -1,0 +1,35 @@
+@startuml
+class es.kiwi.behavioral.strategy.example7.ConcreteStrategyA {
+# void stepOneOpe()
+# void stepTwoOpe()
+}
+interface es.kiwi.behavioral.strategy.example7.Strategy {
+~ void algorithmInterface()
+}
+class es.kiwi.behavioral.strategy.example7.ConcreteStrategyC {
+# void stepOneOpe()
+# void stepTwoOpe()
+}
+class es.kiwi.behavioral.strategy.example7.ConcreteStrategyB {
+# void stepOneOpe()
+# void stepTwoOpe()
+}
+class es.kiwi.behavioral.strategy.example7.Context {
+- Strategy strategy
++ <<Create>> Context(Strategy)
++ void contextInterface()
+}
+abstract class es.kiwi.behavioral.strategy.example7.AbstractClass {
++ final void algorithmInterface()
+- void stepThreeOpe()
+# {abstract}void stepOneOpe()
+# {abstract}void stepTwoOpe()
+}
+
+
+es.kiwi.behavioral.strategy.example7.AbstractClass <|-- es.kiwi.behavioral.strategy.example7.ConcreteStrategyA
+es.kiwi.behavioral.strategy.example7.AbstractClass <|-- es.kiwi.behavioral.strategy.example7.ConcreteStrategyC
+es.kiwi.behavioral.strategy.example7.AbstractClass <|-- es.kiwi.behavioral.strategy.example7.ConcreteStrategyB
+es.kiwi.behavioral.strategy.example7.Strategy <|.. es.kiwi.behavioral.strategy.example7.AbstractClass
+es.kiwi.behavioral.strategy.example7.Context o--> es.kiwi.behavioral.strategy.example7.Strategy
+@enduml

@@ -22,5 +22,5 @@ class es.kiwi.structural.bridge.example5.ConcreteImplementorA {
 es.kiwi.structural.bridge.example5.Implementor <|.. es.kiwi.structural.bridge.example5.ConcreteImplementorB
 es.kiwi.structural.bridge.example5.Abstraction <|-- es.kiwi.structural.bridge.example5.RefinedAbstraction
 es.kiwi.structural.bridge.example5.Implementor <|.. es.kiwi.structural.bridge.example5.ConcreteImplementorA
-es.kiwi.structural.bridge.example5.Abstraction o.. es.kiwi.structural.bridge.example5.Implementor
+es.kiwi.structural.bridge.example5.Abstraction o..> es.kiwi.structural.bridge.example5.Implementor
 @enduml
