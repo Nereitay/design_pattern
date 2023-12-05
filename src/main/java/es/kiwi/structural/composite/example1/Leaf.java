@@ -1,9 +1,9 @@
-package es.kiwi.structural.composite.scenario;
+package es.kiwi.structural.composite.example1;
+
 /**
  * 叶子对象
  */
 public class Leaf {
-
     /**
      * 叶子对象的名字
      */
@@ -11,6 +11,7 @@ public class Leaf {
 
     /**
      * 构造方法，传入叶子对象的名字
+     *
      * @param name 叶子对象的名字
      */
     public Leaf(String name) {
@@ -19,6 +20,7 @@ public class Leaf {
 
     /**
      * 输出叶子对象的结构，叶子对象没有子对象，也就是输出叶子对象的名字
+     *
      * @param preStr 前缀，主要是按照层级拼接的空格，实现向后缩进
      */
     public void printStruct(String preStr) {

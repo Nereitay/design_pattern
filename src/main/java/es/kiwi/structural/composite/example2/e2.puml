@@ -1,0 +1,27 @@
+@startuml
+class es.kiwi.structural.composite.example2.Leaf {
++ void someOperation()
+}
+abstract class es.kiwi.structural.composite.example2.Component {
++ {abstract}void someOperation()
++ void addChild(Component)
++ void removeChild(Component)
++ Component getChildren(int)
+}
+class es.kiwi.structural.composite.example2.Composite {
+- List<Component> childComponents
++ void someOperation()
++ void addChild(Component)
++ void removeChild(Component)
++ Component getChildren(int)
+}
+class es.kiwi.structural.composite.example2.Client {
++ {static} void main(String[])
+}
+
+
+es.kiwi.structural.composite.example2.Component <|-- es.kiwi.structural.composite.example2.Leaf
+es.kiwi.structural.composite.example2.Component <|-- es.kiwi.structural.composite.example2.Composite
+es.kiwi.structural.composite.example2.Composite "1" o-left-> "0..*" es.kiwi.structural.composite.example2.Component
+es.kiwi.structural.composite.example2.Client ..> es.kiwi.structural.composite.example2.Component
+@enduml

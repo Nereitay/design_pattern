@@ -1,24 +1,20 @@
-package es.kiwi.structural.composite.scenario;
+package es.kiwi.structural.composite.example1;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 /**
- * 组合对象， 可以包含其他组和对象或者叶子对象
+ * 组合对象，可以包含其它组合对象或者叶子对象
  */
 public class Composite {
-
     /**
-     * 用来记录包含的其他组合对象
+     * 用来记录包含的其它组合对象
      */
-    private List<Composite> childComposites = new ArrayList<>();
-
+    private Collection<Composite> childComposites = new ArrayList<>();
     /**
-     * 用来记录报班的其他叶子对象
+     * 用来记录包含的其它叶子对象
      */
-    private List<Leaf> childLeaves = new ArrayList<>();
-
-
+    private Collection<Leaf> childLeaves = new ArrayList<>();
     /**
      * 组合对象的名字
      */
@@ -26,6 +22,7 @@ public class Composite {
 
     /**
      * 构造方法，传入组合对象的名字
+     *
      * @param name 组合对象的名字
      */
     public Composite(String name) {
@@ -33,15 +30,17 @@ public class Composite {
     }
 
     /**
-     * 向组合对象加入被它包含的其他组合对象
-     * @param c 被它包含的其他组合对象
+     * 向组合对象加入被它包含的其它组合对象
+     *
+     * @param c 被它包含的其它组合对象
      */
     public void addComposite(Composite c) {
         this.childComposites.add(c);
     }
 
     /**
-     * 相组合对象加入被他包含的叶子对象
+     * 向组合对象加入被它包含的叶子对象
+     *
      * @param leaf 被它包含的叶子对象
      */
     public void addLeaf(Leaf leaf) {
@@ -50,6 +49,7 @@ public class Composite {
 
     /**
      * 输出组合对象自身的结构
+     *
      * @param preStr 前缀，主要是按照层级拼接的空格，实现向后缩进
      */
     public void printStruct(String preStr) {
@@ -62,10 +62,9 @@ public class Composite {
         }
         //输出当前对象的子对象了
         for (Composite c : childComposites) {
-            //递归当前对象的子对象了
+            //递归输出每个子对象
             c.printStruct(preStr);
         }
     }
-
 
 }
