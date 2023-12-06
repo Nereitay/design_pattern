@@ -1,0 +1,32 @@
+@startuml
+class es.kiwi.structural.decorator.example3.ConcreteComponent {
++ void operation()
+}
+abstract class es.kiwi.structural.decorator.example3.Decorator {
+# Component component
++ <<Create>> Decorator(Component)
++ void operation()
+}
+abstract class es.kiwi.structural.decorator.example3.Component {
++ {abstract}void operation()
+}
+class es.kiwi.structural.decorator.example3.ConcreteDecoratorB {
++ <<Create>> ConcreteDecoratorB(Component)
+- void addedBehavior()
++ void operation()
+}
+class es.kiwi.structural.decorator.example3.ConcreteDecoratorA {
+- String addedState
++ <<Create>> ConcreteDecoratorA(Component)
++ String getAddedState()
++ void setAddedState(String)
++ void operation()
+}
+
+
+es.kiwi.structural.decorator.example3.Component <|-- es.kiwi.structural.decorator.example3.ConcreteComponent
+es.kiwi.structural.decorator.example3.Component <|-- es.kiwi.structural.decorator.example3.Decorator
+es.kiwi.structural.decorator.example3.Decorator <|-- es.kiwi.structural.decorator.example3.ConcreteDecoratorB
+es.kiwi.structural.decorator.example3.Decorator <|-- es.kiwi.structural.decorator.example3.ConcreteDecoratorA
+es.kiwi.structural.decorator.example3.Decorator o-up-> es.kiwi.structural.decorator.example3.Component
+@enduml

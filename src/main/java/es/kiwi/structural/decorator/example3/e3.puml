@@ -1,0 +1,33 @@
+@startuml
+class es.kiwi.structural.decorator.example4.GroupPrizeDecorator {
++ <<Create>> GroupPrizeDecorator(Component)
++ double calcPrize(String,Date,Date)
+}
+abstract class es.kiwi.structural.decorator.example4.Decorator {
+# Component c
++ <<Create>> Decorator(Component)
++ double calcPrize(String,Date,Date)
+}
+class es.kiwi.structural.decorator.example4.ConcreteComponent {
++ double calcPrize(String,Date,Date)
+}
+class es.kiwi.structural.decorator.example4.MonthPrizeDecorator {
++ <<Create>> MonthPrizeDecorator(Component)
++ double calcPrize(String,Date,Date)
+}
+abstract class es.kiwi.structural.decorator.example4.Component {
++ {abstract}double calcPrize(String,Date,Date)
+}
+class es.kiwi.structural.decorator.example4.SumPrizeDecorator {
++ <<Create>> SumPrizeDecorator(Component)
++ double calcPrize(String,Date,Date)
+}
+
+
+es.kiwi.structural.decorator.example4.Decorator <|-- es.kiwi.structural.decorator.example4.GroupPrizeDecorator
+es.kiwi.structural.decorator.example4.Component <|-- es.kiwi.structural.decorator.example4.Decorator
+es.kiwi.structural.decorator.example4.Component <|-- es.kiwi.structural.decorator.example4.ConcreteComponent
+es.kiwi.structural.decorator.example4.Decorator <|-- es.kiwi.structural.decorator.example4.MonthPrizeDecorator
+es.kiwi.structural.decorator.example4.Decorator <|-- es.kiwi.structural.decorator.example4.SumPrizeDecorator
+es.kiwi.structural.decorator.example4.Decorator o-up-> es.kiwi.structural.decorator.example4.Component
+@enduml
