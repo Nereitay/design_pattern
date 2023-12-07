@@ -1,0 +1,47 @@
+@startuml
+interface es.kiwi.behavioral.visitor.example5.Visitor {
+~ void visitComposite(Composite)
+~ void visitLeaf(Leaf)
+}
+class es.kiwi.behavioral.visitor.example5.Leaf {
+- String name
++ <<Create>> Leaf(String)
++ void accept(Visitor)
++ String getName()
+}
+class es.kiwi.behavioral.visitor.example5.ObjectStructure {
+- Component root
++ void handleRequest(Visitor)
++ void setRoot(Component)
+}
+abstract class es.kiwi.behavioral.visitor.example5.Component {
++ {abstract}void accept(Visitor)
++ void addChild(Component)
++ void removeChild(Component)
++ Component getChildren(int)
+}
+class es.kiwi.behavioral.visitor.example5.Client {
++ {static} void main(String[])
+}
+class es.kiwi.behavioral.visitor.example5.PrintNameVisitor {
++ void visitComposite(Composite)
++ void visitLeaf(Leaf)
+}
+class es.kiwi.behavioral.visitor.example5.Composite {
+- List<Component> childComponents
+- String name
++ <<Create>> Composite(String)
++ void accept(Visitor)
++ void addChild(Component)
++ String getName()
+}
+
+
+es.kiwi.behavioral.visitor.example5.Component <|-- es.kiwi.behavioral.visitor.example5.Leaf
+es.kiwi.behavioral.visitor.example5.Visitor <|.. es.kiwi.behavioral.visitor.example5.PrintNameVisitor
+es.kiwi.behavioral.visitor.example5.Component <|-- es.kiwi.behavioral.visitor.example5.Composite
+es.kiwi.behavioral.visitor.example5.Composite "1" o--> "0..*" es.kiwi.behavioral.visitor.example5.Component
+es.kiwi.behavioral.visitor.example5.ObjectStructure x-down-> es.kiwi.behavioral.visitor.example5.Component
+es.kiwi.behavioral.visitor.example5.Client .right.> es.kiwi.behavioral.visitor.example5.Visitor
+es.kiwi.behavioral.visitor.example5.Client ..> es.kiwi.behavioral.visitor.example5.ObjectStructure
+@enduml

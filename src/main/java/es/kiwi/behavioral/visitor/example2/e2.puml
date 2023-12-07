@@ -1,0 +1,28 @@
+@startuml
+class es.kiwi.behavioral.visitor.example2.EnterpriseCustomer {
+- String linkman
+- String linkTelephone
+- String registerAddress
++ void serviceRequest()
++ void predilectionAnalyze()
++ void worthAnalyze()
+}
+abstract class es.kiwi.behavioral.visitor.example2.Customer {
+- String customerId
+- String name
++ {abstract}void serviceRequest()
++ {abstract}void predilectionAnalyze()
++ {abstract}void worthAnalyze()
+}
+class es.kiwi.behavioral.visitor.example2.PersonalCustomer {
+- String telephone
+- int age
++ void serviceRequest()
++ void predilectionAnalyze()
++ void worthAnalyze()
+}
+
+
+es.kiwi.behavioral.visitor.example2.Customer <|-- es.kiwi.behavioral.visitor.example2.EnterpriseCustomer
+es.kiwi.behavioral.visitor.example2.Customer <|-- es.kiwi.behavioral.visitor.example2.PersonalCustomer
+@enduml

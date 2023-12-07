@@ -1,0 +1,42 @@
+@startuml
+interface es.kiwi.behavioral.visitor.example3.Visitor {
+~ void visitConcreteElementA(ConcreteElementA)
+~ void visitConcreteElementB(ConcreteElementB)
+}
+class es.kiwi.behavioral.visitor.example3.ObjectStructure {
+- Collection<Element> col
++ void handleRequest(Visitor)
++ void addElement(Element)
+}
+abstract class es.kiwi.behavioral.visitor.example3.Element {
++ {abstract}void accept(Visitor)
+}
+class es.kiwi.behavioral.visitor.example3.ConcreteElementA {
++ void accept(Visitor)
++ void operationA()
+}
+class es.kiwi.behavioral.visitor.example3.ConcreteVisitor2 {
++ void visitConcreteElementA(ConcreteElementA)
++ void visitConcreteElementB(ConcreteElementB)
+}
+class es.kiwi.behavioral.visitor.example3.ConcreteVisitor1 {
++ void visitConcreteElementA(ConcreteElementA)
++ void visitConcreteElementB(ConcreteElementB)
+}
+class es.kiwi.behavioral.visitor.example3.ConcreteElementB {
++ void accept(Visitor)
++ void operationB()
+}
+class es.kiwi.behavioral.visitor.example3.Client {
++ {static} void main(String[])
+}
+
+
+es.kiwi.behavioral.visitor.example3.Element <|-- es.kiwi.behavioral.visitor.example3.ConcreteElementA
+es.kiwi.behavioral.visitor.example3.Visitor <|.. es.kiwi.behavioral.visitor.example3.ConcreteVisitor2
+es.kiwi.behavioral.visitor.example3.Visitor <|.. es.kiwi.behavioral.visitor.example3.ConcreteVisitor1
+es.kiwi.behavioral.visitor.example3.Element <|-- es.kiwi.behavioral.visitor.example3.ConcreteElementB
+es.kiwi.behavioral.visitor.example3.ObjectStructure o--> es.kiwi.behavioral.visitor.example3.Element
+es.kiwi.behavioral.visitor.example3.Client ..> es.kiwi.behavioral.visitor.example3.Visitor
+es.kiwi.behavioral.visitor.example3.Client ..> es.kiwi.behavioral.visitor.example3.ObjectStructure
+@enduml

@@ -1,0 +1,52 @@
+@startuml
+interface es.kiwi.behavioral.visitor.example4.Visitor {
+~ void visitEnterpriseCustomer(EnterpriseCustomer)
+~ void visitPersonalCustomer(PersonalCustomer)
+}
+class es.kiwi.behavioral.visitor.example4.PersonalCustomer {
+- String telephone
+- int age
++ void accept(Visitor)
+}
+class es.kiwi.behavioral.visitor.example4.WorthAnalyzeVisitor {
++ void visitEnterpriseCustomer(EnterpriseCustomer)
++ void visitPersonalCustomer(PersonalCustomer)
+}
+class es.kiwi.behavioral.visitor.example4.PredilectionAnalyzeVisitor {
++ void visitEnterpriseCustomer(EnterpriseCustomer)
++ void visitPersonalCustomer(PersonalCustomer)
+}
+class es.kiwi.behavioral.visitor.example4.ServiceRequestVisitor {
++ void visitEnterpriseCustomer(EnterpriseCustomer)
++ void visitPersonalCustomer(PersonalCustomer)
+}
+class es.kiwi.behavioral.visitor.example4.ObjectStructure {
+- Collection<Customer> col
++ void handleRequest(Visitor)
++ void addElement(Customer)
+}
+class es.kiwi.behavioral.visitor.example4.EnterpriseCustomer {
+- String linkman
+- String linkTelephone
+- String registerAddress
++ void accept(Visitor)
+}
+class es.kiwi.behavioral.visitor.example4.Client {
++ {static} void main(String[])
+}
+abstract class es.kiwi.behavioral.visitor.example4.Customer {
+- String customerId
+- String name
++ {abstract}void accept(Visitor)
+}
+
+
+es.kiwi.behavioral.visitor.example4.Customer <|-- es.kiwi.behavioral.visitor.example4.PersonalCustomer
+es.kiwi.behavioral.visitor.example4.Visitor <|.. es.kiwi.behavioral.visitor.example4.WorthAnalyzeVisitor
+es.kiwi.behavioral.visitor.example4.Visitor <|.. es.kiwi.behavioral.visitor.example4.PredilectionAnalyzeVisitor
+es.kiwi.behavioral.visitor.example4.Visitor <|.. es.kiwi.behavioral.visitor.example4.ServiceRequestVisitor
+es.kiwi.behavioral.visitor.example4.Customer <|-- es.kiwi.behavioral.visitor.example4.EnterpriseCustomer
+es.kiwi.behavioral.visitor.example4.ObjectStructure "1" o--> "0..*" es.kiwi.behavioral.visitor.example4.Customer
+es.kiwi.behavioral.visitor.example4.Client .right.> es.kiwi.behavioral.visitor.example4.Visitor
+es.kiwi.behavioral.visitor.example4.Client ..> es.kiwi.behavioral.visitor.example4.ObjectStructure
+@enduml
