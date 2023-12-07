@@ -1,0 +1,22 @@
+@startuml
+class es.kiwi.behavioral.chain_of_responsibility.example2.ConcreteHandler1 {
++ void handleRequest()
+}
+abstract class es.kiwi.behavioral.chain_of_responsibility.example2.Handler {
+# Handler successor
++ void setSuccessor(Handler)
++ {abstract}void handleRequest()
+}
+class es.kiwi.behavioral.chain_of_responsibility.example2.Client {
++ {static} void main(String[])
+}
+class es.kiwi.behavioral.chain_of_responsibility.example2.ConcreteHandler2 {
++ void handleRequest()
+}
+
+
+es.kiwi.behavioral.chain_of_responsibility.example2.Handler <|-- es.kiwi.behavioral.chain_of_responsibility.example2.ConcreteHandler1
+es.kiwi.behavioral.chain_of_responsibility.example2.Handler <|-- es.kiwi.behavioral.chain_of_responsibility.example2.ConcreteHandler2
+es.kiwi.behavioral.chain_of_responsibility.example2.Handler x--> es.kiwi.behavioral.chain_of_responsibility.example2.Handler
+es.kiwi.behavioral.chain_of_responsibility.example2.Client .right.> es.kiwi.behavioral.chain_of_responsibility.example2.Handler
+@enduml

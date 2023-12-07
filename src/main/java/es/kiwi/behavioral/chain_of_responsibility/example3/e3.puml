@@ -1,0 +1,26 @@
+@startuml
+abstract class es.kiwi.behavioral.chain_of_responsibility.example3.Handler {
+# Handler successor
++ void setSuccessor(Handler)
++ {abstract}String handleFeeRequest(String,double)
+}
+class es.kiwi.behavioral.chain_of_responsibility.example3.DepManager {
++ String handleFeeRequest(String,double)
+}
+class es.kiwi.behavioral.chain_of_responsibility.example3.Client {
++ {static} void main(String[])
+}
+class es.kiwi.behavioral.chain_of_responsibility.example3.ProjectManager {
++ String handleFeeRequest(String,double)
+}
+class es.kiwi.behavioral.chain_of_responsibility.example3.GeneralManager {
++ String handleFeeRequest(String,double)
+}
+
+
+es.kiwi.behavioral.chain_of_responsibility.example3.Handler <|-- es.kiwi.behavioral.chain_of_responsibility.example3.DepManager
+es.kiwi.behavioral.chain_of_responsibility.example3.Handler <|-- es.kiwi.behavioral.chain_of_responsibility.example3.ProjectManager
+es.kiwi.behavioral.chain_of_responsibility.example3.Handler <|-- es.kiwi.behavioral.chain_of_responsibility.example3.GeneralManager
+es.kiwi.behavioral.chain_of_responsibility.example3.Handler x--> es.kiwi.behavioral.chain_of_responsibility.example3.Handler
+es.kiwi.behavioral.chain_of_responsibility.example3.Client ..> es.kiwi.behavioral.chain_of_responsibility.example3.Handler
+@enduml

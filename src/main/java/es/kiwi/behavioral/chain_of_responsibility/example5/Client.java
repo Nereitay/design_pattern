@@ -1,0 +1,31 @@
+package es.kiwi.behavioral.chain_of_responsibility.example5;
+
+public class Client {
+    public static void main(String[] args) {
+        /*组装职责链的过程和以前是一样的*/
+        //先要组装职责链
+        Handler h1 = new GeneralManager();
+        Handler h2 = new DepManager();
+        Handler h3 = new ProjectManager();
+        h3.setSuccessor(h2);
+        h2.setSuccessor(h1);
+
+        //开始测试申请聚餐费用
+        FeeRequestModel frm = new FeeRequestModel();
+        frm.setFee(300);
+        frm.setUser("小李");
+        //调用处理
+        String ret1 = (String) h3.handleRequest(frm);
+        System.out.println("ret1=" + ret1);
+
+        //重新设置申请金额，再调用处理
+        frm.setFee(800);
+        String ret2 = (String) h3.handleRequest(frm);
+        System.out.println("ret2=" + ret2);
+
+        //重新设置申请金额，再调用处理
+        frm.setFee(1600);
+        String ret3 = (String) h3.handleRequest(frm);
+        System.out.println("ret3=" + ret3);
+    }
+}
