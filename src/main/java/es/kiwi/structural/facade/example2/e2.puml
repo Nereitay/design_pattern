@@ -1,0 +1,35 @@
+@startuml
+class es.kiwi.structural.facade.example2.BModuleImpl {
++ void testB()
+}
+interface es.kiwi.structural.facade.example2.BModuleApi {
+~ void testB()
+}
+class es.kiwi.structural.facade.example2.CModuleImpl {
++ void testC()
+}
+class es.kiwi.structural.facade.example2.Facade {
++ void test()
+}
+class es.kiwi.structural.facade.example2.Client {
++ {static} void main(String[])
+}
+class es.kiwi.structural.facade.example2.AModuleImpl {
++ void testA()
+}
+interface es.kiwi.structural.facade.example2.CModuleApi {
+~ void testC()
+}
+interface es.kiwi.structural.facade.example2.AModuleApi {
+~ void testA()
+}
+
+
+es.kiwi.structural.facade.example2.BModuleApi <|.up. es.kiwi.structural.facade.example2.BModuleImpl
+es.kiwi.structural.facade.example2.CModuleApi <|.up. es.kiwi.structural.facade.example2.CModuleImpl
+es.kiwi.structural.facade.example2.AModuleApi <|.up. es.kiwi.structural.facade.example2.AModuleImpl
+es.kiwi.structural.facade.example2.Facade ..> es.kiwi.structural.facade.example2.AModuleImpl
+es.kiwi.structural.facade.example2.Facade ..> es.kiwi.structural.facade.example2.BModuleImpl
+es.kiwi.structural.facade.example2.Facade ..> es.kiwi.structural.facade.example2.CModuleImpl
+es.kiwi.structural.facade.example2.Client ..> es.kiwi.structural.facade.example2.Facade
+@enduml
