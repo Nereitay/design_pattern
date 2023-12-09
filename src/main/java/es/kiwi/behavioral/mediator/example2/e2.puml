@@ -1,0 +1,57 @@
+@startuml
+interface es.kiwi.behavioral.mediator.example2.Mediator {
+~ void changed(Colleague)
+}
+class es.kiwi.behavioral.mediator.example2.CPU {
+- String videoData
+- String soundData
++ <<Create>> CPU(Mediator)
++ String getVideoData()
++ String getSoundData()
++ void executeData(String)
+}
+class es.kiwi.behavioral.mediator.example2.SoundCard {
++ <<Create>> SoundCard(Mediator)
++ void soundData(String)
+}
+abstract class es.kiwi.behavioral.mediator.example2.Colleague {
+- Mediator mediator
++ <<Create>> Colleague(Mediator)
++ Mediator getMediator()
+}
+class es.kiwi.behavioral.mediator.example2.MotherBoard {
+- CDDriver cdDriver
+- CPU cpu
+- VideoCard videoCard
+- SoundCard soundCard
++ void setCdDriver(CDDriver)
++ void setCpu(CPU)
++ void setVideoCard(VideoCard)
++ void setSoundCard(SoundCard)
++ void changed(Colleague)
+- void opeCDDriverReadData(CDDriver)
+- void opeCPU(CPU)
+}
+class es.kiwi.behavioral.mediator.example2.VideoCard {
++ <<Create>> VideoCard(Mediator)
++ void showData(String)
+}
+class es.kiwi.behavioral.mediator.example2.CDDriver {
+- String data
++ <<Create>> CDDriver(Mediator)
++ String getData()
++ void readCD()
+}
+
+
+es.kiwi.behavioral.mediator.example2.Colleague <|-- es.kiwi.behavioral.mediator.example2.CPU
+es.kiwi.behavioral.mediator.example2.Colleague <|-- es.kiwi.behavioral.mediator.example2.SoundCard
+es.kiwi.behavioral.mediator.example2.Mediator <|.. es.kiwi.behavioral.mediator.example2.MotherBoard
+es.kiwi.behavioral.mediator.example2.Colleague <|-- es.kiwi.behavioral.mediator.example2.VideoCard
+es.kiwi.behavioral.mediator.example2.Colleague <|-- es.kiwi.behavioral.mediator.example2.CDDriver
+es.kiwi.behavioral.mediator.example2.Colleague x-right-> es.kiwi.behavioral.mediator.example2.Mediator
+es.kiwi.behavioral.mediator.example2.MotherBoard x-down-> es.kiwi.behavioral.mediator.example2.CPU
+es.kiwi.behavioral.mediator.example2.MotherBoard x-left-> es.kiwi.behavioral.mediator.example2.CDDriver
+es.kiwi.behavioral.mediator.example2.MotherBoard x-down-> es.kiwi.behavioral.mediator.example2.VideoCard
+es.kiwi.behavioral.mediator.example2.MotherBoard x-down-> es.kiwi.behavioral.mediator.example2.SoundCard
+@enduml

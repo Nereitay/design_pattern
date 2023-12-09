@@ -1,0 +1,33 @@
+@startuml
+interface es.kiwi.behavioral.mediator.example1.Mediator {
+~ void changed(Colleague)
+}
+class es.kiwi.behavioral.mediator.example1.ConcreteColleagueA {
++ <<Create>> ConcreteColleagueA(Mediator)
++ void someOperation()
+}
+class es.kiwi.behavioral.mediator.example1.ConcreteMediator {
+- ConcreteColleagueA colleagueA
+- ConcreteColleagueB colleagueB
++ void setColleagueA(ConcreteColleagueA)
++ void setColleagueB(ConcreteColleagueB)
++ void changed(Colleague)
+}
+class es.kiwi.behavioral.mediator.example1.ConcreteColleagueB {
++ <<Create>> ConcreteColleagueB(Mediator)
++ void someOperation()
+}
+class es.kiwi.behavioral.mediator.example1.Colleague {
+- Mediator mediator
++ <<Create>> Colleague(Mediator)
++ Mediator getMediator()
+}
+
+
+es.kiwi.behavioral.mediator.example1.Colleague <|-- es.kiwi.behavioral.mediator.example1.ConcreteColleagueA
+es.kiwi.behavioral.mediator.example1.Mediator <|.. es.kiwi.behavioral.mediator.example1.ConcreteMediator
+es.kiwi.behavioral.mediator.example1.Colleague <|-- es.kiwi.behavioral.mediator.example1.ConcreteColleagueB
+es.kiwi.behavioral.mediator.example1.Colleague x-left-> es.kiwi.behavioral.mediator.example1.Mediator
+es.kiwi.behavioral.mediator.example1.ConcreteMediator x--> es.kiwi.behavioral.mediator.example1.ConcreteColleagueA
+es.kiwi.behavioral.mediator.example1.ConcreteMediator x-right-> es.kiwi.behavioral.mediator.example1.ConcreteColleagueB
+@enduml

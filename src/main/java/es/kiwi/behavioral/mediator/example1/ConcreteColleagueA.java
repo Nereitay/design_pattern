@@ -1,9 +1,9 @@
-package es.kiwi.behavioral.mediator.solution.sample;
+package es.kiwi.behavioral.mediator.example1;
 
 /**
- * 具体同事对象A
+ * 具体的同事类A
  */
-public class ConcreteColleagueA extends Colleague{
+public class ConcreteColleagueA extends Colleague {
     /**
      * 构造方法，传入中介者对象
      *
