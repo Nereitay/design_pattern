@@ -1,0 +1,33 @@
+@startuml
+interface es.kiwi.behavioral.memento.example3.FlowAMockMemento {
+}
+class es.kiwi.behavioral.memento.example3.FlowAMementoCaretaker {
+- FlowAMockMemento memento
++ void saveMemento(FlowAMockMemento)
++ FlowAMockMemento retrieveMemento()
+}
+class es.kiwi.behavioral.memento.example3.FlowAMock {
+- String flowName
+- int tempResult
+- String tempState
++ <<Create>> FlowAMock(String)
++ void runPhaseOne()
++ void schema1()
++ void schema2()
++ FlowAMockMemento createMemento()
++ void setMemento(FlowAMockMemento)
+}
+class es.kiwi.behavioral.memento.example3.FlowAMock$MementoImpl {
+- int tempResult
+- String tempState
++ <<Create>> MementoImpl(int,String)
++ int getTempResult()
++ String getTempState()
+}
+
+
+es.kiwi.behavioral.memento.example3.FlowAMock +.. es.kiwi.behavioral.memento.example3.FlowAMock$MementoImpl
+es.kiwi.behavioral.memento.example3.FlowAMockMemento <|.. es.kiwi.behavioral.memento.example3.FlowAMock$MementoImpl
+es.kiwi.behavioral.memento.example3.FlowAMementoCaretaker o--> es.kiwi.behavioral.memento.example3.FlowAMockMemento
+
+@enduml

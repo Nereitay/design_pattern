@@ -1,0 +1,24 @@
+@startuml
+class es.kiwi.behavioral.memento.example2.Originator {
+- String state
++ Memento createMemento()
++ void setMemento(Memento)
+}
+class es.kiwi.behavioral.memento.example2.Originator$MementoImpl {
+- String state
++ <<Create>> MementoImpl(String)
++ String getState()
+}
+class es.kiwi.behavioral.memento.example2.Caretaker {
+- Memento memento
++ void saveMemento(Memento)
++ Memento retrieveMemento()
+}
+interface es.kiwi.behavioral.memento.example2.Memento {
+}
+
+
+es.kiwi.behavioral.memento.example2.Originator +.. es.kiwi.behavioral.memento.example2.Originator$MementoImpl
+es.kiwi.behavioral.memento.example2.Memento <|.. es.kiwi.behavioral.memento.example2.Originator$MementoImpl
+es.kiwi.behavioral.memento.example2.Caretaker o-up-> es.kiwi.behavioral.memento.example2.Memento
+@enduml
