@@ -1,0 +1,27 @@
+@startuml
+class es.kiwi.behavioral.observer.example1.ConcreteObserver {
+- String observerState
++ void update(Subject)
+}
+class es.kiwi.behavioral.observer.example1.Subject {
+- List<Observer> observers
++ void attach(Observer)
++ void detach(Observer)
+# void notifyObservers()
+}
+class es.kiwi.behavioral.observer.example1.ConcreteSubject {
+- String subjectState
++ String getSubjectState()
++ void setSubjectState(String)
+}
+interface es.kiwi.behavioral.observer.example1.Observer {
+~ void update(Subject)
+}
+
+
+es.kiwi.behavioral.observer.example1.Observer <|.. es.kiwi.behavioral.observer.example1.ConcreteObserver
+es.kiwi.behavioral.observer.example1.Subject <|-- es.kiwi.behavioral.observer.example1.ConcreteSubject
+es.kiwi.behavioral.observer.example1.Subject "1" o-right-> "0..*" es.kiwi.behavioral.observer.example1.Observer
+es.kiwi.behavioral.observer.example1.ConcreteObserver .left.> es.kiwi.behavioral.observer.example1.ConcreteSubject: 回调目标对象，获取目标对象的数据
+
+@enduml

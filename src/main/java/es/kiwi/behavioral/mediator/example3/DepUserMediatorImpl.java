@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * <p>广义中介者：去掉Colleague父类，不定义Mediator接口，Colleague不再持有Mediator</p>
+ * <p>广义中介者：去掉Colleague父类，不定义Mediator接口，Colleague和Mediator不再持有对方</p>
  * <p>
  * 实现部门和人员交互的中介者实现类
  * 说明：为了演示的简洁性，只示例实现撤销部门和人员离职的功能

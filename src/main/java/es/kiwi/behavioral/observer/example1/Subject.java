@@ -1,4 +1,4 @@
-package es.kiwi.behavioral.observer.solution.sample;
+package es.kiwi.behavioral.observer.example1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +14,7 @@ public class Subject {
 
     /**
      * 注册观察者对象
+     *
      * @param observer 观察者对象
      */
     public void attach(Observer observer) {
@@ -22,6 +23,7 @@ public class Subject {
 
     /**
      * 删除观察者对象
+     *
      * @param observer 观察者对象
      */
     public void detach(Observer observer) {
@@ -36,8 +38,4 @@ public class Subject {
             observer.update(this);
         }
     }
-
-
-
-
 }

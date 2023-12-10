@@ -1,0 +1,28 @@
+@startuml
+class es.kiwi.behavioral.observer.example2.Subject {
+- List<Observer> readers
++ void attach(Observer)
++ void detach(Observer)
+# void notifyObservers()
+}
+class es.kiwi.behavioral.observer.example2.Reader {
+- String name
++ void update(Subject)
++ String getName()
++ void setName(String)
+}
+interface es.kiwi.behavioral.observer.example2.Observer {
+~ void update(Subject)
+}
+class es.kiwi.behavioral.observer.example2.Newspaper {
+- String content
++ String getContent()
++ void setContent(String)
+}
+
+
+es.kiwi.behavioral.observer.example2.Observer <|.. es.kiwi.behavioral.observer.example2.Reader
+es.kiwi.behavioral.observer.example2.Subject <|-- es.kiwi.behavioral.observer.example2.Newspaper
+es.kiwi.behavioral.observer.example2.Subject "1" o-right-> "0..*" es.kiwi.behavioral.observer.example2.Observer
+es.kiwi.behavioral.observer.example2.Newspaper <.left. es.kiwi.behavioral.observer.example2.Reader:callback Newspaper
+@enduml
