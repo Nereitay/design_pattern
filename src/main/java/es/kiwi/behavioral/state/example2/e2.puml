@@ -1,0 +1,21 @@
+@startuml
+class es.kiwi.behavioral.state.example2.ConcreteStateA {
++ void handle(String)
+}
+class es.kiwi.behavioral.state.example2.Context {
+- State state
++ void setState(State)
++ void request(String)
+}
+class es.kiwi.behavioral.state.example2.ConcreteStateB {
++ void handle(String)
+}
+interface es.kiwi.behavioral.state.example2.State {
+~ void handle(String)
+}
+
+
+es.kiwi.behavioral.state.example2.State <|.. es.kiwi.behavioral.state.example2.ConcreteStateA
+es.kiwi.behavioral.state.example2.State <|.. es.kiwi.behavioral.state.example2.ConcreteStateB
+es.kiwi.behavioral.state.example2.Context o-right-> es.kiwi.behavioral.state.example2.State
+@enduml

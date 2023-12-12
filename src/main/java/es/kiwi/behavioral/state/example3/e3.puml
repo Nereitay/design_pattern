@@ -1,0 +1,31 @@
+@startuml
+interface es.kiwi.behavioral.state.example3.VoteState {
+~ void vote(String,String,VoteManager)
+}
+class es.kiwi.behavioral.state.example3.RepeatVoteState {
++ void vote(String,String,VoteManager)
+}
+class es.kiwi.behavioral.state.example3.BlackVoteState {
++ void vote(String,String,VoteManager)
+}
+class es.kiwi.behavioral.state.example3.SpiteVoteState {
++ void vote(String,String,VoteManager)
+}
+class es.kiwi.behavioral.state.example3.NormalVoteState {
++ void vote(String,String,VoteManager)
+}
+class es.kiwi.behavioral.state.example3.VoteManager {
+- VoteState state
+- Map<String,String> mapVote
+- Map<String,Integer> mapVoteCount
++ Map<String,String> getMapVote()
++ void vote(String,String)
+}
+
+
+es.kiwi.behavioral.state.example3.VoteState <|.. es.kiwi.behavioral.state.example3.RepeatVoteState
+es.kiwi.behavioral.state.example3.VoteState <|.. es.kiwi.behavioral.state.example3.BlackVoteState
+es.kiwi.behavioral.state.example3.VoteState <|.. es.kiwi.behavioral.state.example3.SpiteVoteState
+es.kiwi.behavioral.state.example3.VoteState <|.. es.kiwi.behavioral.state.example3.NormalVoteState
+es.kiwi.behavioral.state.example3.VoteManager o-right-> es.kiwi.behavioral.state.example3.VoteState
+@enduml

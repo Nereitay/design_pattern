@@ -1,0 +1,31 @@
+@startuml
+class es.kiwi.behavioral.state.example6.LeaveRequestContext {
+}
+class es.kiwi.behavioral.state.example6.StateMachine {
+- State state
+- Object businessVO
++ void doWork()
+}
+interface es.kiwi.behavioral.state.example6.LeaveRequestState {
+}
+class es.kiwi.behavioral.state.example6.AuditOverState {
++ void doWork(StateMachine)
+}
+class es.kiwi.behavioral.state.example6.DepManagerState {
++ void doWork(StateMachine)
+}
+class es.kiwi.behavioral.state.example6.ProjectManagerState {
++ void doWork(StateMachine)
+}
+interface es.kiwi.behavioral.state.example6.State {
+~ void doWork(StateMachine)
+}
+
+
+es.kiwi.behavioral.state.example6.StateMachine <|-- es.kiwi.behavioral.state.example6.LeaveRequestContext
+es.kiwi.behavioral.state.example6.State <|-- es.kiwi.behavioral.state.example6.LeaveRequestState
+es.kiwi.behavioral.state.example6.LeaveRequestState <|.. es.kiwi.behavioral.state.example6.AuditOverState
+es.kiwi.behavioral.state.example6.LeaveRequestState <|.. es.kiwi.behavioral.state.example6.DepManagerState
+es.kiwi.behavioral.state.example6.LeaveRequestState <|.. es.kiwi.behavioral.state.example6.ProjectManagerState
+es.kiwi.behavioral.state.example6.StateMachine o-right-> es.kiwi.behavioral.state.example6.State
+@enduml
