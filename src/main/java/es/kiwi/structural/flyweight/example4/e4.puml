@@ -1,0 +1,46 @@
+@startuml
+class es.kiwi.structural.flyweight.example4.FlyweightFactory {
+- {static} FlyweightFactory factory
+- Map<String,Flyweight> fsMap
+- <<Create>> FlyweightFactory()
++ {static} FlyweightFactory getInstance()
++ Flyweight getFlyweight(String)
+}
+class es.kiwi.structural.flyweight.example4.SecurityMgr {
+- {static} SecurityMgr securityMgr
+- Map<String,Collection<Flyweight>> map
+- <<Create>> SecurityMgr()
++ {static} SecurityMgr getInstance()
++ void login(String)
+- Collection<Flyweight> queryByUser(String)
++ boolean hasPermit(String,String,String)
+}
+class es.kiwi.structural.flyweight.example4.UnsharedConcreteFlyweight {
+- List<Flyweight> list
++ void add(Flyweight)
++ boolean match(String,String)
+}
+interface es.kiwi.structural.flyweight.example4.Flyweight {
+~ void add(Flyweight)
+~ boolean match(String,String)
+}
+class es.kiwi.structural.flyweight.example4.AuthorizationFlyweight {
+- String securityEntity
+- String permit
++ <<Create>> AuthorizationFlyweight(String)
++ void add(Flyweight)
++ boolean match(String,String)
+}
+
+
+es.kiwi.structural.flyweight.example4.Flyweight <|.right. es.kiwi.structural.flyweight.example4.UnsharedConcreteFlyweight
+es.kiwi.structural.flyweight.example4.Flyweight <|.down. es.kiwi.structural.flyweight.example4.AuthorizationFlyweight
+es.kiwi.structural.flyweight.example4.SecurityMgr .right.> es.kiwi.structural.flyweight.example4.FlyweightFactory
+es.kiwi.structural.flyweight.example4.SecurityMgr ..> es.kiwi.structural.flyweight.example4.Flyweight
+es.kiwi.structural.flyweight.example4.SecurityMgr ..> es.kiwi.structural.flyweight.example4.AuthorizationFlyweight
+es.kiwi.structural.flyweight.example4.SecurityMgr ..> es.kiwi.structural.flyweight.example4.UnsharedConcreteFlyweight
+es.kiwi.structural.flyweight.example4.SecurityMgr x-- es.kiwi.structural.flyweight.example4.SecurityMgr
+es.kiwi.structural.flyweight.example4.FlyweightFactory x-- es.kiwi.structural.flyweight.example4.FlyweightFactory
+es.kiwi.structural.flyweight.example4.FlyweightFactory o--> es.kiwi.structural.flyweight.example4.Flyweight
+es.kiwi.structural.flyweight.example4.UnsharedConcreteFlyweight "1" o--> "0..*" es.kiwi.structural.flyweight.example4.Flyweight
+@enduml

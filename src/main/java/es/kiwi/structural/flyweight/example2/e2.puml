@@ -1,0 +1,28 @@
+@startuml
+interface es.kiwi.structural.flyweight.example2.Flyweight {
+~ void operation(String)
+}
+class es.kiwi.structural.flyweight.example2.ConcreteFlyweight {
+- String intrinsicState
++ <<Create>> ConcreteFlyweight(String)
++ void operation(String)
+}
+class es.kiwi.structural.flyweight.example2.Client {
+}
+class es.kiwi.structural.flyweight.example2.UnsharedConcreteFlyweight {
+- String allState
++ void operation(String)
+}
+class es.kiwi.structural.flyweight.example2.FlyweightFactory {
+- Map<String,Flyweight> fsMap
++ Flyweight getFlyweight(String)
+}
+
+
+es.kiwi.structural.flyweight.example2.Flyweight <|.. es.kiwi.structural.flyweight.example2.ConcreteFlyweight
+es.kiwi.structural.flyweight.example2.Flyweight <|.. es.kiwi.structural.flyweight.example2.UnsharedConcreteFlyweight
+es.kiwi.structural.flyweight.example2.FlyweightFactory o-right-> es.kiwi.structural.flyweight.example2.Flyweight
+es.kiwi.structural.flyweight.example2.Client .up.> es.kiwi.structural.flyweight.example2.FlyweightFactory
+es.kiwi.structural.flyweight.example2.Client .right.> es.kiwi.structural.flyweight.example2.ConcreteFlyweight
+es.kiwi.structural.flyweight.example2.Client .up.> es.kiwi.structural.flyweight.example2.UnsharedConcreteFlyweight
+@enduml
