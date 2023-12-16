@@ -1,16 +1,13 @@
-package es.kiwi.structural.proxy.scenario;
+package es.kiwi.structural.proxy.example1;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 /**
  * 描述用户数据的对象
  */
-@Getter
-@Setter
-@ToString
+@Data
 public class UserModel {
+
     /**
      * 用户编号
      */

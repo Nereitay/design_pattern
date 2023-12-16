@@ -1,16 +1,13 @@
-package es.kiwi.structural.proxy.solution;
+package es.kiwi.structural.proxy.example3;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 /**
  * 描述用户数据的对象
  */
-@Getter
-@Setter
-@ToString
-public class UserModel implements UserModelApi{
+@Data
+public class UserModel implements UserModelApi {
+
     /**
      * 用户编号
      */
@@ -27,6 +24,4 @@ public class UserModel implements UserModelApi{
      * 性别
      */
     private String sex;
-
-
 }

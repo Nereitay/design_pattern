@@ -1,0 +1,21 @@
+@startuml
+class es.kiwi.structural.proxy.example2.RealSubject {
++ void request()
+}
+interface es.kiwi.structural.proxy.example2.Subject {
+~ void request()
+}
+class es.kiwi.structural.proxy.example2.Proxy {
+- RealSubject realSubject
++ <<Create>> Proxy(RealSubject)
++ void request()
+}
+class es.kiwi.structural.proxy.example2.client {
+}
+
+
+es.kiwi.structural.proxy.example2.Subject <|.. es.kiwi.structural.proxy.example2.RealSubject
+es.kiwi.structural.proxy.example2.Subject <|.. es.kiwi.structural.proxy.example2.Proxy
+es.kiwi.structural.proxy.example2.client .right.> es.kiwi.structural.proxy.example2.Subject
+es.kiwi.structural.proxy.example2.Proxy x-left-> es.kiwi.structural.proxy.example2.RealSubject
+@enduml

@@ -1,4 +1,4 @@
-package es.kiwi.structural.proxy.solution.sample;
+package es.kiwi.structural.proxy.example2;
 
 /**
  * 抽象的目标接口，定义具体的目标对象和代理公用的接口
