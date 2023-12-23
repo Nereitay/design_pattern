@@ -1,0 +1,35 @@
+@startuml
+interface es.kiwi.behavioral.command.example2.Command {
+~ void execute()
+}
+class es.kiwi.behavioral.command.example2.GigaMainBoard {
++ void open()
+}
+class es.kiwi.behavioral.command.example2.OpenCommand {
+- MainBoardApi mainBoard
++ void execute()
+}
+class es.kiwi.behavioral.command.example2.Client {
++ {static} void main(String[])
+}
+interface es.kiwi.behavioral.command.example2.MainBoardApi {
+~ void open()
+}
+class es.kiwi.behavioral.command.example2.Box {
+- Command openCommand
++ void setOpenCommand(Command)
++ void openButtonPressed()
+}
+class es.kiwi.behavioral.command.example2.MsiMainBoard {
++ void open()
+}
+
+
+es.kiwi.behavioral.command.example2.MainBoardApi <|.. es.kiwi.behavioral.command.example2.GigaMainBoard
+es.kiwi.behavioral.command.example2.Command <|.. es.kiwi.behavioral.command.example2.OpenCommand
+es.kiwi.behavioral.command.example2.MainBoardApi <|.. es.kiwi.behavioral.command.example2.MsiMainBoard
+es.kiwi.behavioral.command.example2.Box o--> es.kiwi.behavioral.command.example2.Command
+es.kiwi.behavioral.command.example2.Client ..> es.kiwi.behavioral.command.example2.MainBoardApi
+es.kiwi.behavioral.command.example2.Client ..> es.kiwi.behavioral.command.example2.OpenCommand
+es.kiwi.behavioral.command.example2.MainBoardApi x--> es.kiwi.behavioral.command.example2.MainBoardApi
+@enduml

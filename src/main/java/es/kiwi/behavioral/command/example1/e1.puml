@@ -1,0 +1,30 @@
+@startuml
+class es.kiwi.behavioral.command.example1.Invoker {
+- Command command
++ void setCommand(Command)
++ void runCommand()
+}
+class es.kiwi.behavioral.command.example1.Client {
++ void assemble()
+}
+class es.kiwi.behavioral.command.example1.Receiver {
++ void action()
+}
+class es.kiwi.behavioral.command.example1.ConcreteCommand {
+- Receiver receiver
+- String state
++ <<Create>> ConcreteCommand(Receiver)
++ void execute()
+}
+interface es.kiwi.behavioral.command.example1.Command {
+~ void execute()
+}
+
+
+es.kiwi.behavioral.command.example1.Command <|.. es.kiwi.behavioral.command.example1.ConcreteCommand
+es.kiwi.behavioral.command.example1.Invoker o-right-> es.kiwi.behavioral.command.example1.Command
+es.kiwi.behavioral.command.example1.ConcreteCommand x--> es.kiwi.behavioral.command.example1.Receiver
+es.kiwi.behavioral.command.example1.Client .right.> es.kiwi.behavioral.command.example1.Receiver
+es.kiwi.behavioral.command.example1.Client .right.> es.kiwi.behavioral.command.example1.ConcreteCommand
+
+@enduml
