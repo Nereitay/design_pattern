@@ -1,0 +1,25 @@
+@startuml
+abstract class es.kiwi.behavioral.interpreter.example2.AbstractExpression {
++ {abstract}void interpret(Context)
+}
+class es.kiwi.behavioral.interpreter.example2.Context {
+}
+class es.kiwi.behavioral.interpreter.example2.Client {
+}
+class es.kiwi.behavioral.interpreter.example2.TerminalExpression {
++ void interpret(Context)
+}
+class es.kiwi.behavioral.interpreter.example2.NonterminalExpression {
+- List<AbstractExpression> list
++ void addAbstractExpression(AbstractExpression)
++ void interpret(Context)
+}
+
+
+es.kiwi.behavioral.interpreter.example2.AbstractExpression <|-- es.kiwi.behavioral.interpreter.example2.NonterminalExpression
+es.kiwi.behavioral.interpreter.example2.AbstractExpression <|-- es.kiwi.behavioral.interpreter.example2.TerminalExpression
+es.kiwi.behavioral.interpreter.example2.Client ..> es.kiwi.behavioral.interpreter.example2.Context
+es.kiwi.behavioral.interpreter.example2.Client .right.> es.kiwi.behavioral.interpreter.example2.AbstractExpression
+es.kiwi.behavioral.interpreter.example2.NonterminalExpression o--> es.kiwi.behavioral.interpreter.example2.AbstractExpression
+
+@enduml

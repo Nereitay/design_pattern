@@ -1,0 +1,45 @@
+@startuml
+class es.kiwi.behavioral.interpreter.example3.Context {
+- Element preEle
+- Document document
++ <<Create>> Context(String)
++ void reInit()
++ Element getNowEle(Element,String)
++ Element getPreEle()
++ void setPreEle(Element)
++ Document getDocument()
+}
+class es.kiwi.behavioral.interpreter.example3.Client {
++ {static} void main(String[])
+}
+abstract class es.kiwi.behavioral.interpreter.example3.ReadXmlExpression {
++ {abstract}String[] interpret(Context)
+}
+class es.kiwi.behavioral.interpreter.example3.ElementTerminalExpression {
+- String eleName
++ <<Create>> ElementTerminalExpression(String)
++ String[] interpret(Context)
+}
+class es.kiwi.behavioral.interpreter.example3.ElementExpression {
+- Collection<ReadXmlExpression> eles
+- String eleName
++ <<Create>> ElementExpression(String)
++ boolean addEle(ReadXmlExpression)
++ boolean removeEle(ReadXmlExpression)
++ String[] interpret(Context)
+}
+class es.kiwi.behavioral.interpreter.example3.PropertyTerminalExpression {
+- String propName
++ <<Create>> PropertyTerminalExpression(String)
++ String[] interpret(Context)
+}
+
+
+es.kiwi.behavioral.interpreter.example3.ReadXmlExpression <|-- es.kiwi.behavioral.interpreter.example3.ElementTerminalExpression
+es.kiwi.behavioral.interpreter.example3.ReadXmlExpression <|-- es.kiwi.behavioral.interpreter.example3.ElementExpression
+es.kiwi.behavioral.interpreter.example3.ReadXmlExpression <|-- es.kiwi.behavioral.interpreter.example3.PropertyTerminalExpression
+es.kiwi.behavioral.interpreter.example3.Client ..> es.kiwi.behavioral.interpreter.example3.Context
+es.kiwi.behavioral.interpreter.example3.Client .right.> es.kiwi.behavioral.interpreter.example3.ReadXmlExpression
+es.kiwi.behavioral.interpreter.example3.ElementExpression "1" o--> "0..*" es.kiwi.behavioral.interpreter.example3.ReadXmlExpression
+
+@enduml
