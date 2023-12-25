@@ -1,0 +1,16 @@
+@startuml
+class es.kiwi.creational.simple_factory.example1.Impl {
++ void test1(String)
+}
+interface es.kiwi.creational.simple_factory.example1.Api {
+~ void test1(String)
+}
+class es.kiwi.creational.simple_factory.example1.Client {
++ {static} void main(String[])
+}
+
+
+es.kiwi.creational.simple_factory.example1.Api <|.. es.kiwi.creational.simple_factory.example1.Impl
+es.kiwi.creational.simple_factory.example1.Client .right.> es.kiwi.creational.simple_factory.example1.Api
+es.kiwi.creational.simple_factory.example1.Client ..> es.kiwi.creational.simple_factory.example1.Impl
+@enduml

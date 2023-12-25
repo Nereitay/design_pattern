@@ -1,0 +1,22 @@
+@startuml
+class es.kiwi.creational.simple_factory.example3.Factory {
++ {static} Api createApi()
+}
+class es.kiwi.creational.simple_factory.example3.Impl {
++ void test1(String)
+}
+interface es.kiwi.creational.simple_factory.example3.Api {
+~ void test1(String)
+}
+class es.kiwi.creational.simple_factory.example3.Client {
++ {static} void main(String[])
+}
+
+
+es.kiwi.creational.simple_factory.example3.Api <|.. es.kiwi.creational.simple_factory.example3.Impl
+es.kiwi.creational.simple_factory.example3.Client ..> es.kiwi.creational.simple_factory.example3.Api
+es.kiwi.creational.simple_factory.example3.Client ..> es.kiwi.creational.simple_factory.example3.Factory
+es.kiwi.creational.simple_factory.example3.Factory .right.> es.kiwi.creational.simple_factory.example3.Api
+es.kiwi.creational.simple_factory.example3.Factory .right.> es.kiwi.creational.simple_factory.example3.Impl
+
+@enduml
