@@ -1,6 +1,7 @@
 package es.kiwi.structural.facade.example2;
 
 /**
+ * <p>外观模式示例代码</p>
  * 外观对象
  */
 public class Facade {
@@ -9,11 +10,11 @@ public class Facade {
      */
     public void test() {
         //在内部实现的时候，可能会调用到内部的多个模块
-        AModuleImpl a = new AModuleImpl();
+        AModuleApi a = new AModuleImpl();
         a.testA();
-        BModuleImpl b = new BModuleImpl();
+        BModuleApi b = new BModuleImpl();
         b.testB();
-        CModuleImpl c = new CModuleImpl();
+        CModuleApi c = new CModuleImpl();
         c.testC();
     }
 }

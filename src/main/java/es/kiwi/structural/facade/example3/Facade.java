@@ -1,6 +1,7 @@
 package es.kiwi.structural.facade.example3;
 
 /**
+ * <p>外观模式重写示例</p>
  * 代码生成子系统的外观对象
  */
 public class Facade {

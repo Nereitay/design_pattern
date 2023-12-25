@@ -25,11 +25,14 @@ interface es.kiwi.structural.facade.example2.AModuleApi {
 }
 
 
-es.kiwi.structural.facade.example2.BModuleApi <|.up. es.kiwi.structural.facade.example2.BModuleImpl
-es.kiwi.structural.facade.example2.CModuleApi <|.up. es.kiwi.structural.facade.example2.CModuleImpl
-es.kiwi.structural.facade.example2.AModuleApi <|.up. es.kiwi.structural.facade.example2.AModuleImpl
+es.kiwi.structural.facade.example2.BModuleApi <|.left. es.kiwi.structural.facade.example2.BModuleImpl
+es.kiwi.structural.facade.example2.CModuleApi <|.left. es.kiwi.structural.facade.example2.CModuleImpl
+es.kiwi.structural.facade.example2.AModuleApi <|.left. es.kiwi.structural.facade.example2.AModuleImpl
 es.kiwi.structural.facade.example2.Facade ..> es.kiwi.structural.facade.example2.AModuleImpl
 es.kiwi.structural.facade.example2.Facade ..> es.kiwi.structural.facade.example2.BModuleImpl
 es.kiwi.structural.facade.example2.Facade ..> es.kiwi.structural.facade.example2.CModuleImpl
-es.kiwi.structural.facade.example2.Client ..> es.kiwi.structural.facade.example2.Facade
+es.kiwi.structural.facade.example2.Facade .up.> es.kiwi.structural.facade.example2.AModuleApi
+es.kiwi.structural.facade.example2.Facade .right.> es.kiwi.structural.facade.example2.BModuleApi
+es.kiwi.structural.facade.example2.Facade ..> es.kiwi.structural.facade.example2.CModuleApi
+es.kiwi.structural.facade.example2.Client .right.> es.kiwi.structural.facade.example2.Facade
 @enduml
