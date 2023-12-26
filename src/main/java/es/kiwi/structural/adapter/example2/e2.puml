@@ -1,0 +1,21 @@
+@startuml
+class es.kiwi.structural.adapter.example2.Adaptee {
++ void specificRequest()
+}
+class es.kiwi.structural.adapter.example2.Client {
++ {static} void main(String[])
+}
+interface es.kiwi.structural.adapter.example2.Target {
+~ void request()
+}
+class es.kiwi.structural.adapter.example2.Adapter {
+- Adaptee adaptee
++ <<Create>> Adapter(Adaptee)
++ void request()
+}
+
+
+es.kiwi.structural.adapter.example2.Target <|.. es.kiwi.structural.adapter.example2.Adapter
+es.kiwi.structural.adapter.example2.Client .right.> es.kiwi.structural.adapter.example2.Target
+es.kiwi.structural.adapter.example2.Adapter x-left-> es.kiwi.structural.adapter.example2.Adaptee
+@enduml

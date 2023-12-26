@@ -1,0 +1,35 @@
+@startuml
+interface es.kiwi.structural.adapter.example3.LogDbOperateApi {
+~ void createLog(LogModel)
+~ void updateLog(LogModel)
+~ void removeLog(LogModel)
+~ List<LogModel> getAllLog()
+}
+class es.kiwi.structural.adapter.example3.Client {
++ {static} void main(String[])
+}
+class es.kiwi.structural.adapter.example3.LogFileOperate {
+- String logFilePathName
++ <<Create>> LogFileOperate(String)
++ List<LogModel> readLogFile()
++ void writeLogFile(List<LogModel>)
+}
+class es.kiwi.structural.adapter.example3.Adapter {
+- LogFileOperateApi adaptee
++ <<Create>> Adapter(LogFileOperateApi)
++ void createLog(LogModel)
++ void updateLog(LogModel)
++ void removeLog(LogModel)
++ List<LogModel> getAllLog()
+}
+interface es.kiwi.structural.adapter.example3.LogFileOperateApi {
+~ List<LogModel> readLogFile()
+~ void writeLogFile(List<LogModel>)
+}
+
+
+es.kiwi.structural.adapter.example3.LogFileOperateApi <|.. es.kiwi.structural.adapter.example3.LogFileOperate
+es.kiwi.structural.adapter.example3.LogDbOperateApi <|.. es.kiwi.structural.adapter.example3.Adapter
+es.kiwi.structural.adapter.example3.Client .right.> es.kiwi.structural.adapter.example3.LogDbOperateApi
+es.kiwi.structural.adapter.example3.Adapter x--> es.kiwi.structural.adapter.example3.LogFileOperate
+@enduml

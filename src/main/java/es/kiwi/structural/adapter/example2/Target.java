@@ -1,4 +1,4 @@
-package es.kiwi.structural.adapter.solution.sample;
+package es.kiwi.structural.adapter.example2;
 
 /**
  * 定义客户端使用的接口，与特定领域相关
