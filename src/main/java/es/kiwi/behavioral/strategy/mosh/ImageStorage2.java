@@ -13,7 +13,7 @@ public class ImageStorage2 {
 
     public void Store (String fileName) {
         //JPEG, PNG, ...
-        //B&W, High Contrast
+        //B1&W, High Contrast
 
         compressor.compress(fileName);
 

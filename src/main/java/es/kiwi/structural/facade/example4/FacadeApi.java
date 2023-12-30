@@ -7,7 +7,7 @@ package es.kiwi.structural.facade.example4;
  */
 public interface FacadeApi {
     /*
-    这些是 A B C 模块对子系统外的接口，这样外部就不需要知道 A B C模块的存在，
+    这些是 A B1 C 模块对子系统外的接口，这样外部就不需要知道 A B1 C模块的存在，
     只需要知道Facade接口就行了
     */
     void a1();

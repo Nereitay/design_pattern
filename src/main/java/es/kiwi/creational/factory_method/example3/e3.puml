@@ -1,0 +1,30 @@
+@startuml
+abstract class es.kiwi.creational.factory_method.example3.ExportOperate {
++ boolean export(String)
+# {abstract}ExportFileApi factoryMethod()
+}
+class es.kiwi.creational.factory_method.example3.ExportTxtFile {
++ boolean export(String)
+}
+class es.kiwi.creational.factory_method.example3.ExportTxtFileOperate {
+# ExportFileApi factoryMethod()
+}
+interface es.kiwi.creational.factory_method.example3.ExportFileApi {
+~ boolean export(String)
+}
+class es.kiwi.creational.factory_method.example3.ExportDBOperate {
+# ExportFileApi factoryMethod()
+}
+class es.kiwi.creational.factory_method.example3.ExportDB {
++ boolean export(String)
+}
+
+
+es.kiwi.creational.factory_method.example3.ExportFileApi <|.. es.kiwi.creational.factory_method.example3.ExportTxtFile
+es.kiwi.creational.factory_method.example3.ExportOperate <|-- es.kiwi.creational.factory_method.example3.ExportTxtFileOperate
+es.kiwi.creational.factory_method.example3.ExportOperate <|-- es.kiwi.creational.factory_method.example3.ExportDBOperate
+es.kiwi.creational.factory_method.example3.ExportFileApi <|.. es.kiwi.creational.factory_method.example3.ExportDB
+es.kiwi.creational.factory_method.example3.ExportTxtFileOperate ..> es.kiwi.creational.factory_method.example3.ExportTxtFile
+es.kiwi.creational.factory_method.example3.ExportDBOperate ..> es.kiwi.creational.factory_method.example3.ExportDB
+
+@enduml

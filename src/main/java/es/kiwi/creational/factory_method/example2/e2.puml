@@ -1,0 +1,18 @@
+@startuml
+class es.kiwi.creational.factory_method.example2.ConcreteProduct {
+}
+class es.kiwi.creational.factory_method.example2.ConcreteCreator {
+# Product factoryMethod()
+}
+abstract class es.kiwi.creational.factory_method.example2.Creator {
+# {abstract}Product factoryMethod()
++ void someOperation()
+}
+interface es.kiwi.creational.factory_method.example2.Product {
+}
+
+
+es.kiwi.creational.factory_method.example2.Product <|.. es.kiwi.creational.factory_method.example2.ConcreteProduct
+es.kiwi.creational.factory_method.example2.Creator <|-- es.kiwi.creational.factory_method.example2.ConcreteCreator
+es.kiwi.creational.factory_method.example2.ConcreteCreator .right.> es.kiwi.creational.factory_method.example2.ConcreteProduct
+@enduml

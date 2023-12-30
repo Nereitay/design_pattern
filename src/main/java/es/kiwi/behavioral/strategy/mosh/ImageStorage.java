@@ -13,7 +13,7 @@ public class ImageStorage {
 
     public void Store (String fileName) {
         //JPEG, PNG, ...
-        //B&W, High Contrast
+        //B1&W, High Contrast
 
         if (compressor.equals("jpeg")) {
             System.out.println("Compressing using JPEG");
@@ -22,7 +22,7 @@ public class ImageStorage {
         }
 
         if (filter.equals("b&w")) {
-            System.out.println("Applying B&W filter");
+            System.out.println("Applying B1&W filter");
         } else if (compressor.equals("high-contrast")) {
             System.out.println("Applying High Contrast filter");
         }

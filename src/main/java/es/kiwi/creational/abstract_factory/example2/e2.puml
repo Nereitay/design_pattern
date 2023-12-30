@@ -1,0 +1,44 @@
+@startuml
+interface es.kiwi.creational.abstract_factory.example2.AbstractProductB {
+}
+class es.kiwi.creational.abstract_factory.example2.ProductA2 {
+}
+class es.kiwi.creational.abstract_factory.example2.ProductB1 {
+}
+class es.kiwi.creational.abstract_factory.example2.Client {
++ {static} void main(String[])
+}
+interface es.kiwi.creational.abstract_factory.example2.AbstractFactory {
+~ AbstractProductA createProductA()
+~ AbstractProductB createProductB()
+}
+class es.kiwi.creational.abstract_factory.example2.ConcreteFactory1 {
++ AbstractProductA createProductA()
++ AbstractProductB createProductB()
+}
+class es.kiwi.creational.abstract_factory.example2.ProductA1 {
+}
+class es.kiwi.creational.abstract_factory.example2.ConcreteFactory2 {
++ AbstractProductA createProductA()
++ AbstractProductB createProductB()
+}
+interface es.kiwi.creational.abstract_factory.example2.AbstractProductA {
+}
+class es.kiwi.creational.abstract_factory.example2.ProductB2 {
+}
+
+
+es.kiwi.creational.abstract_factory.example2.AbstractProductA <|.. es.kiwi.creational.abstract_factory.example2.ProductA2
+es.kiwi.creational.abstract_factory.example2.AbstractProductB <|.. es.kiwi.creational.abstract_factory.example2.ProductB1
+es.kiwi.creational.abstract_factory.example2.AbstractFactory <|.. es.kiwi.creational.abstract_factory.example2.ConcreteFactory1
+es.kiwi.creational.abstract_factory.example2.AbstractProductA <|.. es.kiwi.creational.abstract_factory.example2.ProductA1
+es.kiwi.creational.abstract_factory.example2.AbstractFactory <|.. es.kiwi.creational.abstract_factory.example2.ConcreteFactory2
+es.kiwi.creational.abstract_factory.example2.AbstractProductB <|.. es.kiwi.creational.abstract_factory.example2.ProductB2
+es.kiwi.creational.abstract_factory.example2.Client ..> es.kiwi.creational.abstract_factory.example2.AbstractFactory
+es.kiwi.creational.abstract_factory.example2.Client ..> es.kiwi.creational.abstract_factory.example2.AbstractProductA
+es.kiwi.creational.abstract_factory.example2.Client ..> es.kiwi.creational.abstract_factory.example2.AbstractProductB
+es.kiwi.creational.abstract_factory.example2.ConcreteFactory1 .down.> es.kiwi.creational.abstract_factory.example2.ProductA1
+es.kiwi.creational.abstract_factory.example2.ConcreteFactory1 .down.> es.kiwi.creational.abstract_factory.example2.ProductB1
+es.kiwi.creational.abstract_factory.example2.ConcreteFactory2 .down.> es.kiwi.creational.abstract_factory.example2.ProductA2
+es.kiwi.creational.abstract_factory.example2.ConcreteFactory2 .down.> es.kiwi.creational.abstract_factory.example2.ProductB2
+@enduml

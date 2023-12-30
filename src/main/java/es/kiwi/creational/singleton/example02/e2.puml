@@ -1,0 +1,11 @@
+@startuml
+class es.kiwi.creational.singleton.example02.Singleton {
+- {static} Singleton uniqueInstance
+- String singletonData
+- <<Create>> Singleton()
++ {static} Singleton getInstance()
++ void singletonOperation()
++ String getSingletonData()
+}
+es.kiwi.creational.singleton.example02.Singleton x-- es.kiwi.creational.singleton.example02.Singleton
+@enduml
