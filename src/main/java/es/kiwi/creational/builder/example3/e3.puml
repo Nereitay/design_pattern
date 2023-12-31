@@ -1,0 +1,33 @@
+@startuml
+class es.kiwi.creational.builder.example3.XmlBuilder {
+- StringBuilder sb
+- {static} String LINE_SEPARATOR
++ StringBuilder getResult()
++ void buildHeader(ExportHeaderModel)
++ void buildBody(Map<String,Collection<ExportDataModel>>)
++ void buildFooter(ExportFooterModel)
+}
+class es.kiwi.creational.builder.example3.TxtBuilder {
+- StringBuilder sb
+- {static} String LINE_SEPARATOR
++ StringBuilder getResult()
++ void buildHeader(ExportHeaderModel)
++ void buildBody(Map<String,Collection<ExportDataModel>>)
++ void buildFooter(ExportFooterModel)
+}
+interface es.kiwi.creational.builder.example3.Builder {
+~ void buildHeader(ExportHeaderModel)
+~ void buildBody(Map<String,Collection<ExportDataModel>>)
+~ void buildFooter(ExportFooterModel)
+}
+class es.kiwi.creational.builder.example3.Director {
+- Builder builder
++ <<Create>> Director(Builder)
++ void construct(ExportHeaderModel,Map<String,Collection<ExportDataModel>>,ExportFooterModel)
+}
+
+
+es.kiwi.creational.builder.example3.Builder <|.. es.kiwi.creational.builder.example3.XmlBuilder
+es.kiwi.creational.builder.example3.Builder <|.. es.kiwi.creational.builder.example3.TxtBuilder
+es.kiwi.creational.builder.example3.Director o--> es.kiwi.creational.builder.example3.Builder
+@enduml

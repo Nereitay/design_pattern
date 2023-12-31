@@ -1,0 +1,22 @@
+@startuml
+interface es.kiwi.creational.builder.example2.Product {
+}
+class es.kiwi.creational.builder.example2.ConcreteBuilder {
+- Product resultProduct
++ Product getResult()
++ void buildPart()
+}
+class es.kiwi.creational.builder.example2.Director {
+- Builder builder
++ <<Create>> Director(Builder)
++ void construct()
+}
+interface es.kiwi.creational.builder.example2.Builder {
+~ void buildPart()
+}
+
+
+es.kiwi.creational.builder.example2.Builder <|.. es.kiwi.creational.builder.example2.ConcreteBuilder
+es.kiwi.creational.builder.example2.Director o-right-> es.kiwi.creational.builder.example2.Builder
+es.kiwi.creational.builder.example2.ConcreteBuilder x-left-> es.kiwi.creational.builder.example2.Product
+@enduml
