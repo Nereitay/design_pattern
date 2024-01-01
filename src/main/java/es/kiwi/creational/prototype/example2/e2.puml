@@ -1,0 +1,21 @@
+@startuml
+class es.kiwi.creational.prototype.example2.ConcretePrototype1 {
++ Prototype clone()
+}
+interface es.kiwi.creational.prototype.example2.Prototype {
+~ Prototype clone()
+}
+class es.kiwi.creational.prototype.example2.ConcretePrototype2 {
++ Prototype clone()
+}
+class es.kiwi.creational.prototype.example2.Client {
+- Prototype prototype
++ <<Create>> Client(Prototype)
++ void operation()
+}
+
+
+es.kiwi.creational.prototype.example2.Prototype <|.. es.kiwi.creational.prototype.example2.ConcretePrototype1
+es.kiwi.creational.prototype.example2.Prototype <|.. es.kiwi.creational.prototype.example2.ConcretePrototype2
+es.kiwi.creational.prototype.example2.Client x-right-> es.kiwi.creational.prototype.example2.Prototype
+@enduml

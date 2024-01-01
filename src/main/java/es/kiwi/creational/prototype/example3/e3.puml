@@ -1,0 +1,31 @@
+@startuml
+class es.kiwi.creational.prototype.example3.EnterpriseOrder {
+- String enterpriseName
+- String productId
+- int orderProductNum
++ int getOrderProductNum()
++ void setOrderProductNum(int)
++ OrderApi cloneOrder()
+}
+class es.kiwi.creational.prototype.example3.PersonalOrder {
+- String customerName
+- String productId
+- int orderProductNum
++ int getOrderProductNum()
++ void setOrderProductNum(int)
++ OrderApi cloneOrder()
+}
+class es.kiwi.creational.prototype.example3.OrderBusiness {
++ void saveOrder(OrderApi)
+}
+interface es.kiwi.creational.prototype.example3.OrderApi {
+~ int getOrderProductNum()
+~ void setOrderProductNum(int)
+~ OrderApi cloneOrder()
+}
+
+
+es.kiwi.creational.prototype.example3.OrderApi <|.. es.kiwi.creational.prototype.example3.EnterpriseOrder
+es.kiwi.creational.prototype.example3.OrderApi <|.. es.kiwi.creational.prototype.example3.PersonalOrder
+es.kiwi.creational.prototype.example3.OrderBusiness ..> es.kiwi.creational.prototype.example3.OrderApi
+@enduml
